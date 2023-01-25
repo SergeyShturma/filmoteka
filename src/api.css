@@ -1,0 +1,44 @@
+p {
+    margin: 0;
+}
+
+.js-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.js-card {
+    list-style: none;
+    width: 395px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.js-card-img {
+    width: 395px;
+}
+
+.js-movie-title {
+
+    color: #000000;
+}
+
+.js-movie-descr {
+    color: #FF6B08;
+}
+
+.js-movie-reiting {
+    background: #FF6B01;
+    border-radius: 5px;
+    padding: 3px 8px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: white;
+}
