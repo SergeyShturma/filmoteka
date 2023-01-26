@@ -1,7 +1,29 @@
 .footer {
   text-align: center;
+  background-color: var(--background-color);
 }
 
 .footer_link {
-  text-decoration: none;
+  color: var(--footer-text-color);
+  text-decoration: underline;
 }
+
+.footer_section {
+  padding-top: 30px;
+  padding-bottom: 28px;
+}
+
+.footer_text {
+  line-height: 1.17;
+  color: var(--footer-text-color);
+}
+
+.footer_icon {
+  fill: #ff6b08;
+}
+
+// @media screen and (max-width: 767px) {
+//   .footer_text {
+//     max-width: 236px;
+//   }
+// }
