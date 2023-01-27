@@ -23,12 +23,14 @@ p {
 }
 
 .js-movie-title {
-
+    max-width: 395px;
     color: #000000;
 }
 
 .js-movie-descr {
     color: #FF6B08;
+    display: flex;
+    justify-content: space-between;
 }
 
 .js-movie-reiting {
