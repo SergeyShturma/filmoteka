@@ -114,3 +114,10 @@ p, ul, button {
     fill: white;
     border: solid 1px black;
 }
+
+.load-more-btn{
+    cursor: pointer;
+   display: block;
+   margin: 0 auto;
+   margin-bottom: 20px;
+}
