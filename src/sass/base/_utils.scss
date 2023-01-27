@@ -1,24 +1,24 @@
 *,
 *::before,
 *::after {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    min-height: 100vh;
+  min-height: 100vh;
 
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
 .body {
-      font-family: Roboto, sans-serif;
-      letter-spacing: 0.03em;
-      color: #757575;
-      background-color: #ffffff;
-  }
+  font-family: Roboto, sans-serif;
+  letter-spacing: 0.03em;
+  color: #757575;
+  background-color: #ffffff;
+}
 
 link {
   text-decoration: none;
@@ -56,4 +56,8 @@ ul {
   list-style: none;
   // padding: 0;
   // margin: 0;
+}
+
+button {
+  cursor: pointer;
 }
