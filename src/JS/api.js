@@ -4,13 +4,17 @@ const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w500/';
 const MOVIE_ID = '619930';
 
 const refs = {
-    cardsArea: document.querySelector('.js-cards')
+    cardsArea: document.querySelector('.js-cards'),
+    onloadMore: document.querySelector('.load-more-btn'),
 };
+
+let pageNum = 1;
 
 renderTrendCardMarkup()
 
 function getTrendingMovies() {
-    return fetch(`${BASE_URL}/trending/movie/day?api_key=${API_KEY}`)
+    return fetch(`${BASE_URL}/trending/movie/day?api_key=${API_KEY}&language=ru
+    &page=${pageNum}&include_adult=false`)
         .then(resp => {
             if (!resp.ok) {
                 throw new Error(resp.statusText)
@@ -101,3 +105,12 @@ function getMovieVideos() {
 getMovieVideos()
     .then(data => data)
     .catch(err => console.log(err));
+
+
+
+refs.onloadMore.addEventListener('click', onLoadMoreBtn)
+
+function onLoadMoreBtn() {
+    pageNum += 1;
+    renderTrendCardMarkup()
+}
