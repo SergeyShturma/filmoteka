@@ -1,0 +1,268 @@
+.lib-header {
+    min-height: 230px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.56);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(/src/images/mobile/library-background-mobile.png);
+    background-size: cover;
+}
+
+@media (min-device-pixel-ratio: 2),
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    .lib-header {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)),
+            url(/src/images/mobile/library-background-mobile@2x.png);
+    }
+}
+
+@media screen and (min-device-pixel-ratio: 3),
+screen and (min-resolution: 288dpi),
+screen and (min-resolution: 3dppx) {
+    .lib-header {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)),
+            url(/src/images/mobile/library-background-mobile@3x.png);
+    }
+}
+
+.header__section {
+    padding-top: 40px;
+    padding-bottom: 44px;
+}
+
+@media screen and (min-width: 768px) {
+    .header {
+        min-height: auto;
+    }
+
+    .header__section {
+        padding-bottom: 60px;
+    }
+}
+
+/*Tablet*/
+@media screen and (min-width: 768px) {
+    .lib-header {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)),
+            url(/src/images/tablet/library-background-tablet.png);
+    }
+
+    @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        .lib-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.56),
+                rgba(0, 0, 0, 0.56)),
+                url(/src/images/tablet/library-background-tablet@2x.png);
+        }
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+    screen and (min-resolution: 288dpi),
+    screen and (min-resolution: 3dppx) {
+        .lib-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.56),
+                rgba(0, 0, 0, 0.56)),
+                url(/src/images/tablet/library-background-tablet@3x.png);
+        }
+    }
+}
+
+/*Desctop*/
+@media screen and (min-width: 1280px) {
+    .lib-header {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)),
+            url(/src/images/desktop/library-background-desktop.png);
+    }
+
+    @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        .lib-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.56),
+                rgba(0, 0, 0, 0.56)),
+                url(/src/images/desktop/library-background-desktop@2x.png);
+        }
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+    screen and (min-resolution: 288dpi),
+    screen and (min-resolution: 3dppx) {
+        .lib-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.56),
+                rgba(0, 0, 0, 0.56)),
+                url(/src/images/desktop/library-background-desktop@3x.png);
+        }
+    }
+}
+
+
+.header__icon {
+    display: block;
+    stroke: #FFFFFF;
+    fill: none;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header__logo-text {
+    display: none;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media screen and (min-width: 768px) {
+    .header__logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .header__logo-text {
+        display: inline-block;
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 1.17;
+        color: #FFFFFF;
+        margin-left: 10px;
+    }
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__list {
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-style: 500;
+    font-size: 12px;
+    line-height: 1;
+    color: #FFFFFF;
+}
+
+.header__list-item {
+    position: relative;
+    margin-right: 40px;
+}
+
+.header__list-item:last-child {
+    margin-right: 0px;
+}
+
+.header__list-link {
+    color:#FFFFFF;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.17;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header__list-link--accent::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    transform: translate(-50%, 0%);
+    background-color:#FF001B;
+    width: 100%;
+    height: 3px;
+}
+
+/*Стилізація кнопок */
+.library__btns {
+    margin-top: 62px;
+    margin-right: -20px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.library__button {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #FFFFFF;
+    line-height: 1.33;
+    font-weight: 500;
+
+    padding-top: 14px;
+    padding-bottom: 12px;
+    padding-left: 36px;
+    padding-right: 36px;
+
+    width: 130px;
+    height: 44px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    background: none;
+
+    margin-right: 20px;
+    transition: background-color border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button--accent {
+  background-color:#FF6B01;
+  border-color: #FF6B01;
+}
+
+
+@media screen and (min-width: 768px) {
+    .library__btns {
+        margin-top: 40px;
+        margin-right: -32px;
+    }
+
+    .library__button {
+        width: 152px;
+        height: 44px;
+        padding: 13px, 46px;
+        margin-right: 32px;
+    }
+
+}
+
+@media screen and (min-width: 1280px) {
+    .library__btns {
+        margin-right: -16px;
+    }
+
+    .library__button {
+        width: 148px;
+        height: 42px;
+        margin-right: 16px;
+        padding: 12px 41px;
+    }
+
+
+}
+
+/*Ховери*/
+.header__logo:hover .header__icon {
+    stroke: #FF6B01;
+}
+
+.header__logo:hover .header__logo-text {
+    color:#FF6B01;
+}
+
+.header__list-link:hover {
+    color: #FF6B01;
+}
+
+.library__button:hover {
+    background-color: #FF6B01;
+    border-color: #FF6B01;
+}
