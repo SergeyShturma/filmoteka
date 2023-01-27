@@ -43,8 +43,10 @@ getTrendingMovies()
         }
         }   
           
-    const cardMarkup = `<li class='js-card'>
+        const cardMarkup = `<li class='js-card'>
+     <button type="button" class='js-on-card'>
      <img src="${IMG_BASE_URL}${poster_path}" alt="" class='js-card-img'>
+     </button>
      <div class='js-movie-descr'>
      <p class='js-movie-title'>${title.toUpperCase()}</p>
      <div class='js-movie-genres'>

@@ -1,4 +1,4 @@
-p, ul {
+p, ul, button {
     margin: 0;
     padding: 0;
 }
@@ -52,7 +52,15 @@ p, ul {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+    padding: 5px;
+}
+.js-on-card{
+    border: none;
+    cursor: pointer;
+}
+.js-card:hover,
+.js-card:focus{
+    box-shadow: rgba(107, 35, 35, 0.24) 0px 5px 10px;
 }
 
 @media screen and (max-width: 767px) {
