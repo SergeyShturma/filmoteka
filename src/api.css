@@ -91,3 +91,26 @@ p, ul, button {
     width: 336px;
 }
 }
+
+.btnToUp{
+    position: fixed;
+    bottom: 80px;
+    right: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+.iconToUp {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.iconToUp:hover,
+.iconToUp:focus {
+    background-color: #FF6B08;
+    fill: white;
+    border: solid 1px black;
+}
