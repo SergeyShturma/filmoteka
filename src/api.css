@@ -1,16 +1,19 @@
-p {
+p, ul {
     margin: 0;
+    padding: 0;
 }
 
 .js-cards {
     display: flex;
-    gap: 20px;
+    gap: 16px;
     flex-wrap: wrap;
+    margin-top: 60px;
 }
 
 .js-card {
     list-style: none;
     width: 395px;
+    margin-bottom: 32px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
@@ -27,10 +30,11 @@ p {
     color: #000000;
 }
 
-.js-movie-descr {
+.js-movie-genres {
     color: #FF6B08;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .js-movie-reiting {
@@ -43,4 +47,39 @@ p {
     font-size: 12px;
     line-height: 14px;
     color: white;
+}
+.js-movie-descr {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+@media screen and (max-width: 767px) {
+    .js-cards {
+            gap: 20px;
+        }
+    .js-card {
+        width: 280px;
+    }
+
+    .js-card-img {
+        width: 280px;
+    }
+}
+
+@media screen and (max-width: 1279px) {
+.js-cards{
+    gap: 32px;
+}
+.js-card {
+    width: 336px;
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 0;
+}
+
+.js-card-img {
+    width: 336px;
+}
 }
