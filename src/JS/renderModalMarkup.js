@@ -16,15 +16,26 @@ refs.backdrop.addEventListener('click', onBackdropClick);
 //   refs.addBtn.addEventListener("click", addToLocalStorage)
 refs.list.addEventListener('click', movieClick)
 
+
 function movieClick(evt) {
-    if (evt.target.nodeName !== 'IMG') {
-        return;
+    evt.preventDefault();
+
+    // if (evt.target.nodeName !== 'IMG') {
+    //     return;
+    // }
+   const selectedFilm = evt.target.closest('.js-card');
+    const filmId = selectedFilm.dataset.id;
+    console.log(filmId);
+    
+    if (selectedFilm) {
+        onOpenModal();
+        fetchOneMovie(filmId)
+            .then(data => createMarkupCard(data))
     }
-    onOpenModal();
 } 
 
-function fetchOneMovie() {
-    return fetch("https://api.themoviedb.org/3/movie/76341?api_key=671c14eb1babf71c7ecd9b35ab5716a8")
+function fetchOneMovie(filmId) {
+    return fetch(`https://api.themoviedb.org/3/movie/${filmId}?api_key=671c14eb1babf71c7ecd9b35ab5716a8`)
         .then(resp => {
              if (!resp.ok) {
                  throw new Error(resp.statusText);
@@ -34,19 +45,39 @@ function fetchOneMovie() {
   
 }
 
-console.log( fetchOneMovie().then(data=>console.log(data)))
+// console.log( fetchOneMovie().then(data=>console.log(data)))
 
 function onOpenModal() {
     document.addEventListener('keydown', onEscapeClick)
     document.body.classList.add('show-modal');
+    // createMarkupCard();
+}
+
+function onCloseModal() {
+    document.removeEventListener('keydown', onEscapeClick)
+    document.body.classList.remove('show-modal');
+}
+
+function onBackdropClick(evt) {
+    if (evt.currentTarget === evt.target) {
+        onCloseModal();
+    }
+}
+
+function onEscapeClick(evt) {
+    if (evt.code === 'Escape') {
+        onCloseModal();
+    }
+}
 
 
-    fetchOneMovie().then(({ title, vote_average, vote_count, popularity, original_title, genres, overview, poster_path }) => {
-        const genreList = genres.map(genre => genre.name)
-       
+function createMarkupCard(data) {
+    const arr = [];
+    arr.push(data);
+    const markup = arr.map(({ title, vote_average, vote_count, popularity, original_title, genres, overview, poster_path }) => {
+        const genreList = genres.map(genre => genre.name);
 
-        return refs.addTo.innerHTML = `
-                <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="phonesize_image_movie" class="image_movie_card">
+     return `<img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="phonesize_image_movie" class="image_movie_card">
                 <div class="movie_card_info">
                     <h1 class="movie_title_card_modal">${title}</h1>
                     <div class="rates_info_card_movie">
@@ -72,25 +103,8 @@ function onOpenModal() {
                     <h2 class="about-film-card-info">About</h2>
 
                  <p class="description-movie-card"> ${overview}</p>  
-                </div>
-
-    `})
-
+                </div>`}).join('');
+    refs.addTo.innerHTML = markup;
 }
 
-function onCloseModal() {
-    document.removeEventListener('keydown', onEscapeClick)
-    document.body.classList.remove('show-modal');
-}
-
-function onBackdropClick(evt) {
-    if (evt.currentTarget === evt.target) {
-        onCloseModal();
-    }
-}
-
-function onEscapeClick(evt) {
-    if (evt.code === 'Escape') {
-        onCloseModal();
-    }
-}
+// console.log(createMarkupCard());
