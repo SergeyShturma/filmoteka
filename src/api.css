@@ -52,7 +52,7 @@ p, ul, button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 5px;
+    padding: 2px;
 }
 .js-on-card{
     border: none;
