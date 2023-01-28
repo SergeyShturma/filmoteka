@@ -50,7 +50,7 @@ getTrendingMovies()
         }
         }   
           
-        const cardMarkup = `<li class='js-card' data-id="${id}>
+        const cardMarkup = `<li class='js-card' data-id="${id}">
      <button type="button" class='js-on-card'>
      <img src="${IMG_BASE_URL}${poster_path}" alt="" class='js-card-img'>
      </button>
