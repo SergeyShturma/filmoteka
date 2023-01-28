@@ -2,14 +2,16 @@ const refs = {
       addTo: document.querySelector(".modal_txt"),
      closeModalBtn: document.querySelector('[data-modal-close]'),
       backdrop: document.querySelector('.js-backdrop'),
-    watchedBtn: document.querySelector(".button_card_add"), 
+    watchedBtn: document.querySelector(".watched-btn"), 
     list: document.querySelector('.js-cards'),
+    quequeBtn: document.querySelector(".quequeBtn"),
 }
 
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.backdrop.addEventListener('click', onBackdropClick); 
-// refs.watchedBtn.addEventListener("click", addToLocalStorage)
+refs.watchedBtn.addEventListener("click", addToLocalStorage)
 refs.list.addEventListener('click', movieClick)
+refs.quequeBtn.addEventListener("click", addToQueQueStorage)
 
 
 function movieClick(evt) {
@@ -66,10 +68,10 @@ function onEscapeClick(evt) {
 function createMarkupCard(data) {
     const arr = [];
     arr.push(data);
-    const markup = arr.map(({ title, vote_average, vote_count, popularity, original_title, genres, overview, poster_path }) => {
+    const markup = arr.map(({ title, vote_average, vote_count, popularity, original_title, genres, overview, poster_path, id }) => {
         const genreList = genres.map(genre => genre.name);
 
-     return `<img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="phonesize_image_movie" class="image_movie_card">
+     return `<img src="https://image.tmdb.org/t/p/w500${poster_path}" data-id="${id}" alt="phonesize_image_movie" class="image_movie_card">
                 <div class="movie_card_info">
                     <h1 class="movie_title_card_modal">${title}</h1>
                     <div class="rates_info_card_movie">
@@ -97,6 +99,48 @@ function createMarkupCard(data) {
                  <p class="description-movie-card"> ${overview}</p>  
                 </div>`}).join('');
     refs.addTo.innerHTML = markup;
+    refs.watchedBtn.textContent = 'Add to watched';
 }
 
+const arrayOfWatchedMovies = []
+const arrayOfQueQue = []
+
+
+
+function addToLocalStorage() {
+    const imageEl = document.querySelector(".image_movie_card")
+    const idFilmUnique = Number(imageEl.dataset.id)
+
+        if (arrayOfWatchedMovies.includes(idFilmUnique)) {
+            refs.watchedBtn.textContent = 'Add to watched';
+            const filmIndex = arrayOfWatchedMovies.indexOf(idFilmUnique);
+            const removeFilm = arrayOfWatchedMovies.splice(filmIndex, 1);
+
+            localStorage.removeItem("watchedMovies")
+            
+        return
+    }
+
+    refs.watchedBtn.textContent = 'remove';
+
+    arrayOfWatchedMovies.push(idFilmUnique)
+    localStorage.setItem("watchedMovies", JSON.stringify(arrayOfWatchedMovies))  
+}
+
+function addToQueQueStorage() {
+    const imageEl = document.querySelector(".image_movie_card")
+    const idQueQue = Number(imageEl.dataset.id)
+
+    const watchedMovies = JSON.parse((localStorage.getItem("watchedMovies")))
+    // console.log(JSON.parse(watchedMovies));
+   
+    if (arrayOfQueQue.includes(idQueQue)) {
+
+        return
+    }
+
+
+    arrayOfQueQue.push(idQueQue)
+    localStorage.setItem("queQueMovies", JSON.stringify(arrayOfQueQue))
+}
 
