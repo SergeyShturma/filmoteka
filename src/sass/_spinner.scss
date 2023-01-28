@@ -1,47 +1,44 @@
-.loader {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  position: absolute;
-  top: 38vh;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  &__text {
-    margin: 5px auto;
-    color: #3d314a;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    z-index: 2;
+@keyframes spinner-line-fade-more {
+  0%,
+  100% {
+    opacity: 0; /* minimum opacity */
   }
-  &__filmstrip {
-    position: relative;
-    width: 56px;
-    height: 70px;
-    background: #3d314a;
-    &:before,
-    &:after {
-      content: '';
-      position: absolute;
-      height: 120%;
-      border-left: 5px dashed #f5f1ed;
-      animation: roll 20ms infinite;
-    }
-    &:before {
-      left: 5px;
-    }
-    &:after {
-      right: 5px;
-    }
+  1% {
+    opacity: 1;
   }
 }
 
-@keyframes roll {
-  0% {
-    top: 0px;
-  }
+@keyframes spinner-line-fade-quick {
+  0%,
+  39%,
   100% {
-    top: -15px;
+    opacity: 0.25; /* minimum opacity */
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner-line-fade-default {
+  0%,
+  100% {
+    opacity: 0.22; /* minimum opacity */
+  }
+  1% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner-line-shrink {
+  0%,
+  25%,
+  100% {
+    /* minimum scale and opacity */
+    transform: scale(0.5);
+    opacity: 0.25;
+  }
+  26% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
