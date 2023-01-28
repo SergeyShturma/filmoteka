@@ -6,6 +6,9 @@ const MOVIE_ID = '619930';
 const refs = {
     cardsArea: document.querySelector('.js-cards'),
     onloadMore: document.querySelector('.load-more-btn'),
+
+    searchForm: document.querySelector(`.header__form`)
+
 };
 refs.onloadMore.style.display = 'none';
 let pageNum = 1;
@@ -67,7 +70,9 @@ getTrendingMovies()
 
 function getSearchMovies() {
     return fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&language=ru
-    &page=1&include_adult=false`)
+
+    &page=1&query=${searchQuery}&include_adult=false`)
+
     .then(resp => {
             if (!resp.ok) {
                 throw new Error(resp.statusText)
@@ -75,6 +80,59 @@ function getSearchMovies() {
         })
     .catch (err => console.log(err));
 }
+
+
+refs.searchForm.addEventListener(`submit`, onSearch);
+
+
+let searchQuery = ``;
+// let page = 1;
+
+async function onSearch(evt){
+    evt.preventDefault();
+    searchQuery = evt.currentTarget.elements.searchQuery.value;
+    page = 1;
+    refs.cardsArea.innerHTML = '';
+    console.log(searchQuery);
+    if (!searchQuery){
+        Notiflix.Notify.failure(`Please, enter your request`);
+        return;
+      }
+    
+      try{
+        const SearchData = await getSearchMovies (searchQuery, page)
+          const { results } = SearchData;
+          const murkap = results.map(item => creatMarkup(item)).join('');
+          refs.cardsArea.innerHTML = murkap;
+
+        
+            
+      }
+      catch(error){
+        console.log(error)
+      }
+     
+        
+     
+  }
+
+ function creatMarkup( card ){
+    
+    const { poster_path, title, vote_average, release_date } = card;
+    return  `<li class='js-card'>
+    <button type="button" class='js-on-card'>
+    <img src="${IMG_BASE_URL}${poster_path}" alt="" class='js-card-img'>
+    </button>
+    <div class='js-movie-descr'>
+    <p class='js-movie-title'>${title.toUpperCase()}</p>
+    <div class='js-movie-genres'>
+    <p> | ${release_date.slice(0, 4)}</p>
+    <span class='js-movie-reiting'>${String(vote_average).slice(0, 3)}</span>
+    </div>
+    </div>
+    </li>`
+ }
+
 
 
 
