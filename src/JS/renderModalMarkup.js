@@ -135,12 +135,12 @@ function addToQueQueStorage() {
     // console.log(JSON.parse(watchedMovies));
    
     if (arrayOfQueQue.includes(idQueQue)) {
-
-        return
+        return;
     }
 
 
     arrayOfQueQue.push(idQueQue)
     localStorage.setItem("queQueMovies", JSON.stringify(arrayOfQueQue))
 }
+
 
