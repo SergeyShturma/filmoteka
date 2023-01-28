@@ -24,7 +24,7 @@ const opts = {
 
 const spinner = new Spinner(opts);
 
-export function spinerPlay() {
+export function spinnerPlay() {
   spinner.spin(refs.spinner);
   refs.spinner.classList.remove('is-hidden');
 }
