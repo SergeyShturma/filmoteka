@@ -86,7 +86,7 @@ refs.searchForm.addEventListener(`submit`, onSearch);
 
 
 let searchQuery = ``;
-// let page = 1;
+let page = 1;
 
 async function onSearch(evt){
     evt.preventDefault();
