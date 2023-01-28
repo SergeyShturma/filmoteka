@@ -118,7 +118,7 @@ function addToLocalStorage() {
 
             localStorage.removeItem("watchedMovies")
             
-        return
+            return;
     }
 
     refs.watchedBtn.textContent = 'remove';
