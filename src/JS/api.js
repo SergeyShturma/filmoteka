@@ -7,6 +7,8 @@ const refs = {
     cardsArea: document.querySelector('.js-cards'),
     onloadMore: document.querySelector('.load-more-btn'),
 };
+
+
 refs.onloadMore.style.display = 'none';
 let pageNum = 1;
 
@@ -28,10 +30,9 @@ async function getGenreNames() {
   const data = await response.json();
   const genNames = await data.genres
   return genNames
- 
 }
 
-async function  renderTrendCardMarkup() {
+async function renderTrendCardMarkup() {
 const genres = await getGenreNames()
 getTrendingMovies()
     .then(data => data.results)
@@ -62,12 +63,12 @@ getTrendingMovies()
     
     refs.cardsArea.insertAdjacentHTML('beforeend', cardMarkup)
     }))
-    .catch(err => console.log(err));   
+        .catch(err => console.log(err));
 }
 
 function getSearchMovies() {
     return fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&language=ru
-    &page=1&include_adult=false`)
+    &page=1&query=${searchQuery}&include_adult=false`)
     .then(resp => {
             if (!resp.ok) {
                 throw new Error(resp.statusText)
@@ -75,8 +76,6 @@ function getSearchMovies() {
         })
     .catch (err => console.log(err));
 }
-
-
 
 function getMovieDetails() {
     return fetch(`${BASE_URL}/movie/${MOVIE_ID}?api_key=${API_KEY}`)
