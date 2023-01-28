@@ -1,38 +1,32 @@
- 
-
 const refs = {
-      openModalBtn: document.querySelector('[data-modal-open]'),
       addTo: document.querySelector(".modal_txt"),
      closeModalBtn: document.querySelector('[data-modal-close]'),
       backdrop: document.querySelector('.js-backdrop'),
-    addBtn: document.querySelector(".button_card_add"), 
-    list: document.querySelector('.js-cards')
+    watchedBtn: document.querySelector(".button_card_add"), 
+    list: document.querySelector('.js-cards'),
 }
 
-
-// refs.openModalBtn.addEventListener('click', onOpenModal);
- refs.closeModalBtn.addEventListener('click', onCloseModal);
+refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.backdrop.addEventListener('click', onBackdropClick); 
-//   refs.addBtn.addEventListener("click", addToLocalStorage)
+// refs.watchedBtn.addEventListener("click", addToLocalStorage)
 refs.list.addEventListener('click', movieClick)
 
 
 function movieClick(evt) {
     evt.preventDefault();
 
-    // if (evt.target.nodeName !== 'IMG') {
-    //     return;
-    // }
    const selectedFilm = evt.target.closest('.js-card');
     const filmId = selectedFilm.dataset.id;
-    console.log(filmId);
     
     if (selectedFilm) {
         onOpenModal();
         fetchOneMovie(filmId)
-            .then(data => createMarkupCard(data))
+            .then(data => {
+                createMarkupCard(data)             
+            })
     }
-} 
+}
+
 
 function fetchOneMovie(filmId) {
     return fetch(`https://api.themoviedb.org/3/movie/${filmId}?api_key=671c14eb1babf71c7ecd9b35ab5716a8`)
@@ -44,8 +38,6 @@ function fetchOneMovie(filmId) {
         })
   
 }
-
-// console.log( fetchOneMovie().then(data=>console.log(data)))
 
 function onOpenModal() {
     document.addEventListener('keydown', onEscapeClick)
@@ -94,7 +86,7 @@ function createMarkupCard(data) {
     <p class="votes_number_card"> <span class="span_votes_number_card">${vote_average}</span>/${vote_count}</p>
                     <p class="votes_number_card">${popularity}</p>
                     <p class="votes_number_card">${original_title}</p>
-                    <p class="votes_number_card">${genreList}</p>
+                    <p class="votes_number_card">${genreList.slice(0,3)}</p>
 </div>
                     
 
@@ -107,4 +99,4 @@ function createMarkupCard(data) {
     refs.addTo.innerHTML = markup;
 }
 
-// console.log(createMarkupCard());
+
