@@ -2,6 +2,52 @@ p, ul, button {
     margin: 0;
     padding: 0;
 }
+.btnToUp {
+    position: fixed;
+    bottom: 80px;
+    right: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.iconToUp {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.iconToUp:hover,
+.iconToUp:focus {
+    background-color: #FF6B08;
+    fill: white;
+    border: solid 1px black;
+}
+
+.load-more-btn {
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    border-color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    background-color: transparent;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.load-more-btn:hover,
+.load-more-btn:focus {
+    background-color: #FF6B08;
+    border-color: #fff;
+    border: solid 1px black;
+}
 
 .js-cards {
     display: flex;
@@ -92,32 +138,3 @@ p, ul, button {
 }
 }
 
-.btnToUp{
-    position: fixed;
-    bottom: 80px;
-    right: 10px;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-}
-.iconToUp {
-    width: 50px;
-    height: 50px;
-    border: none;
-    border-radius: 50%;
-    background-color: transparent;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.iconToUp:hover,
-.iconToUp:focus {
-    background-color: #FF6B08;
-    fill: white;
-    border: solid 1px black;
-}
-
-.load-more-btn{
-    cursor: pointer;
-   display: block;
-   margin: 0 auto;
-   margin-bottom: 20px;
-}

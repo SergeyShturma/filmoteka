@@ -7,7 +7,7 @@ const refs = {
     cardsArea: document.querySelector('.js-cards'),
     onloadMore: document.querySelector('.load-more-btn'),
 };
-
+refs.onloadMore.style.display = 'none';
 let pageNum = 1;
 
 renderTrendCardMarkup()
@@ -36,7 +36,7 @@ const genres = await getGenreNames()
 getTrendingMovies()
     .then(data => data.results)
     .then(cards => cards.map(card => { 
-    const { genre_ids, poster_path, title, vote_average, release_date } = card;
+    const { genre_ids, poster_path, title, vote_average, release_date, id } = card;
     let movieGenres = []; 
     for (const genre of genres) {
     if (genre_ids.includes(genre.id)) {
@@ -47,7 +47,7 @@ getTrendingMovies()
         }
         }   
           
-        const cardMarkup = `<li class='js-card'>
+        const cardMarkup = `<li class='js-card' data-id="${id}>
      <button type="button" class='js-on-card'>
      <img src="${IMG_BASE_URL}${poster_path}" alt="" class='js-card-img'>
      </button>
@@ -109,8 +109,11 @@ getMovieVideos()
 
 
 refs.onloadMore.addEventListener('click', onLoadMoreBtn)
-
+setTimeout(() => {
+       refs.onloadMore.style.display = 'block' 
+    }, 2000);
 function onLoadMoreBtn() {
+    
     pageNum += 1;
     renderTrendCardMarkup()
 }
