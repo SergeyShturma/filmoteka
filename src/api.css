@@ -1,0 +1,141 @@
+p, ul, button {
+    margin: 0;
+    padding: 0;
+}
+.btnToUp {
+    position: fixed;
+    bottom: 80px;
+    right: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.iconToUp {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.iconToUp:hover,
+.iconToUp:focus {
+    background-color: #FF6B08;
+    fill: white;
+    border: solid 1px black;
+}
+
+.load-more-btn {
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    border-color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    background-color: transparent;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.load-more-btn:hover,
+.load-more-btn:focus {
+    background-color: #FF6B08;
+    border-color: #fff;
+    border: solid 1px black;
+}
+
+.js-cards {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+.js-card {
+    list-style: none;
+    width: 395px;
+    margin-bottom: 32px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.js-card-img {
+    width: 395px;
+    cursor: pointer;
+}
+
+.js-movie-title {
+    max-width: 395px;
+    color: #000000;
+}
+
+.js-movie-genres {
+    color: #FF6B08;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.js-movie-reiting {
+    background: #FF6B01;
+    border-radius: 5px;
+    padding: 3px 8px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: white;
+}
+.js-movie-descr {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2px;
+}
+.js-on-card{
+    border: none;
+    cursor: pointer;
+}
+.js-card:hover,
+.js-card:focus{
+    box-shadow: rgba(107, 35, 35, 0.24) 0px 5px 10px;
+}
+
+@media screen and (max-width: 767px) {
+    .js-cards {
+            gap: 20px;
+        }
+    .js-card {
+        width: 280px;
+    }
+
+    .js-card-img {
+        width: 280px;
+    }
+}
+
+@media screen and (max-width: 1279px) {
+.js-cards{
+    gap: 32px;
+}
+.js-card {
+    width: 336px;
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 0;
+}
+
+.js-card-img {
+    width: 336px;
+}
+}
+

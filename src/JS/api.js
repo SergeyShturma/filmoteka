@@ -6,7 +6,9 @@ const MOVIE_ID = '619930';
 const refs = {
     cardsArea: document.querySelector('.js-cards'),
     onloadMore: document.querySelector('.load-more-btn'),
+
     searchForm: document.querySelector(`.header__form`)
+
 };
 refs.onloadMore.style.display = 'none';
 let pageNum = 1;
@@ -68,7 +70,9 @@ getTrendingMovies()
 
 function getSearchMovies() {
     return fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&language=ru
+
     &page=1&query=${searchQuery}&include_adult=false`)
+
     .then(resp => {
             if (!resp.ok) {
                 throw new Error(resp.statusText)
@@ -76,6 +80,7 @@ function getSearchMovies() {
         })
     .catch (err => console.log(err));
 }
+
 
 refs.searchForm.addEventListener(`submit`, onSearch);
 
@@ -127,6 +132,7 @@ async function onSearch(evt){
     </div>
     </li>`
  }
+
 
 
 

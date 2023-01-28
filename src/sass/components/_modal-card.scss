@@ -1,0 +1,340 @@
+.backdrop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.3);
+
+  z-index: 999;
+
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
+}
+
+@media screen and (min-width: 320px) {
+  .modal {
+    position: fixed;
+
+    transform: translate(-50%, -50%);
+    padding: 48px 20px;
+    width: 100%;
+    z-index: 200;
+    background-color: #fff;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+      0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    transform: scale(1.1);
+    transition: transform 200ms ease-in-out;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    padding: 40px 72px 40px 36px;
+    max-width: 704px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .modal {
+    padding: 40px 12px;
+    max-width: 806px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal_txt {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 320px) {
+  .image_movie_card {
+    display: block;
+    width: 100%;
+    margin: auto;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .image_movie_card {
+    margin-left: 0;
+    margin-right: 68px;
+    width: 264px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .image_movie_card {
+    margin-right: 16px;
+    width: 375px;
+  }
+}
+
+.close_modal_movie_card {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 320px) {
+  .button_card_add,
+  .button_card_queue {
+    display: block;
+    width: 110px;
+    height: 44px;
+    border: 1px solid black;
+    /*  padding: 6px; */
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    text-align: center;
+
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .button_card_add,
+  .button_card_queue {
+    width: 125px;
+    height: 44px;
+    margin-top: 40px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .button_card_add,
+  .button_card_queue {
+    width: 136px;
+    height: 44px;
+    margin-top: 20px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 320px) {
+  .button-list-card {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .button-list-card {
+    display: flex;
+    gap: 15px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .button-list-card {
+    display: flex;
+    gap: 15px;
+  }
+}
+
+.button_card_add:hover,
+.button_card_queue:hover,
+.button_card_add:focus,
+.button_card_queue:focus {
+  background-color: #ff6b01;
+  color: #fff;
+  border: none;
+}
+
+.phonesize_image_movie {
+  display: block;
+}
+
+body.show-modal .backdrop {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+}
+
+body.show-modal .modal {
+  transform: scale(1);
+}
+
+.rates_info_card_movie {
+  display: flex;
+  gap: 85px;
+}
+
+@media screen and (min-width: 320x) {
+  .rates_info_card_movie_titles {
+    margin: 50px;
+  }
+}
+
+/* @media screen and (min-width: 768x) {
+    .rates_info_card_movie_titles {
+        display: block;
+        color: #8C8C8C;
+        margin-right: 40px;
+    }
+}
+@media screen and (min-width: 1024x) {
+    .rates_info_card_movie_titles {
+        display: block;
+        color: #8C8C8C;
+        margin-right: 40px;
+    }
+} */
+
+@media screen and (min-width: 320px) {
+  .movie_title_card_modal {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 20pt;
+    margin: 20px 0px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .movie_title_card_modal {
+    margin-top: 0;
+  }
+}
+
+/* @media screen and (min-width: 1024px) {
+      .movie_title_card_modal {
+          font-family: Roboto, sans-serif;
+          font-weight: 500;
+          font-size: 20pt;
+          margin: 20px 0px;
+
+      }
+  } */
+@media screen and (min-width: 320px) {
+  .rates_info_card_movie_titles_name {
+    font-size: 16px;
+    color: #8c8c8c;
+    margin-bottom: 8px;
+  }
+}
+
+/*  @media screen and (min-width: 768px) {
+     .rates_info_card_movie_titles_name {
+         font-size: 16px;
+         color: #8C8C8C;
+         margin-bottom: 8px;
+
+     }
+ }
+
+  @media screen and (min-width: 1020px) {
+      .rates_info_card_movie_titles_name {
+          font-size: 16px;
+          color: #8C8C8C;
+          margin-bottom: 8px;
+
+      }
+  } */
+
+@media screen and (min-width: 320px) {
+  .votes_number_card {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+}
+
+/* @media screen and (min-width: 768px) {
+    .votes_number_card {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .votes_number_card {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+} */
+
+@media screen and (min-width: 320px) {
+  .span_votes_number_card {
+    font-size: 16px;
+    margin-bottom: 8px;
+    background-color: #ff6b01;
+    border-radius: 5px;
+    padding: 3px;
+  }
+}
+
+/*   @media screen and (min-width: 768px) {
+      .span_votes_number_card {
+          font-size: 16px;
+          margin-bottom: 8px;
+          background-color: #FF6B01;
+          border-radius: 5px;
+          padding: 3px;
+      }
+  }
+
+   @media screen and (min-width: 1024px) {
+       .span_votes_number_card {
+           font-size: 16px;
+           margin-bottom: 8px;
+           background-color: #FF6B01;
+           border-radius: 5px;
+           padding: 3px;
+       }
+   } */
+
+@media screen and (min-width: 320px) {
+  .about-film-card-info {
+    margin-top: 12px;
+  }
+}
+
+/*    @media screen and (min-width: 768px) {
+             .about-film-card-info {
+                 margin-top: 12px;
+    
+             }
+         }
+
+                   @media screen and (min-width: 1024px) {
+                       .about-film-card-info {
+                           margin-top: 12px;
+        
+                       }
+                   } */
+
+.movie_card_info {
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+@media screen and (min-width: 320px) {
+  .description-movie-card {
+    display: block;
+    width: 264px;
+    margin-top: 8px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .description-movie-card {
+    width: 391px;
+  }
+}
