@@ -1,0 +1,2 @@
+const e=document.querySelector(".btnToUp");e.style.display="none";const t=document.querySelector(".header");window.addEventListener("scroll",(function(){let t=document.documentElement.clientHeight;document.documentElement.scrollHeight,e.style.display="block",pageYOffset<t&&e.classList.add("arrow--show")})),e.addEventListener("click",(function(){var e;e=t,window.scroll({left:0,top:e.offsetTop,behavior:"smooth"})}));
+//# sourceMappingURL=index.dcec0616.js.map
