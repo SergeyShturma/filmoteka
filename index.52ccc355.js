@@ -1,0 +1,2 @@
+!function(){var e=document.querySelector("#theme-switch-toggle"),t="default-theme",c="dark-theme";function o(){document.body.classList.toggle(c),document.body.classList.toggle(t),document.body.classList.contains(t)?(e.setAttribute("checked",!1),localStorage.setItem("active-theme",t)):document.body.classList.contains(c)&&(e.setAttribute("checked",!0),localStorage.setItem("active-theme",c))}document.body.classList.add(t),e.addEventListener("change",o),localStorage.getItem("active-theme")===c&&o()}();
+//# sourceMappingURL=index.52ccc355.js.map
