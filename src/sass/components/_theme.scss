@@ -1,0 +1,115 @@
+body.light-theme {
+  background-color: var(--light-bgc);
+  color: var(--dark-bgc);
+}
+
+body.dark-theme {
+  background-color: var(--dark-bgc);
+  color: var(--light-bgc);
+}
+
+.switch {
+  position: absolute;
+  display: flex;
+  padding: 0;
+  right: 15px;
+  top: 170px;
+}
+
+body.dark-theme {
+  .footer,
+  .modal {
+    background-color: #413e3e;
+  }
+
+  .header__list-link,
+  .header__logo-text,
+  .header__form-input::placeholder,
+  .library__button {
+    color: rgb(163, 147, 147);
+  }
+
+  .library__button {
+    border-color: rgb(163, 147, 147);
+  }
+
+  .footer_text,
+  .footer_link {
+    color: rgb(217, 205, 205);
+  }
+
+  .js-cards {
+    background-color: #413e3e;
+    color: rgb(255, 174, 0);
+  }
+}
+
+/* THEME SWITCH */
+.theme-switch {
+  display: flex;
+  align-items: center;
+}
+
+.theme-switch__control {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  width: 45px;
+  height: 20px;
+  border-radius: 50em;
+  padding: 3px 0;
+}
+
+.theme-switch__toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.theme-switch__track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  user-select: none;
+  background-color: lightgrey;
+  border-radius: inherit;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.theme-switch__marker {
+  position: relative;
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  border-radius: 60%;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  transform: translateX(2px);
+  transition: transform 250ms ease-in;
+}
+
+.theme-switch__toggle:checked + .theme-switch__track {
+  background-color: grey;
+}
+
+.theme-switch__toggle:checked ~ .theme-switch__marker {
+  transform: translateX(22px);
+}
+
+// .theme-switch__toggle:focus + .theme-switch__track,
+// .theme-switch__toggle:active + .theme-switch__track,
+// .theme-switch__toggle:hover + .theme-switch__track {
+//   box-shadow: 0 0 0 3px #ff6b01;
+// }
