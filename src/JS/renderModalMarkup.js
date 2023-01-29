@@ -88,8 +88,8 @@ function createMarkupCard(data) {
         </div>
                     
 <div class="rates_info_card_movie_datas">
-    <p class="votes_number_card"> <span class="span_votes_number_card">${vote_average}</span>/${vote_count}</p>
-                    <p class="votes_number_card">${popularity}</p>
+    <p class="votes_number_card"> <span class="span_votes_number_card">${String(vote_average).slice(0, 3)}</span>/${vote_count}</p>
+                    <p class="votes_number_card">${Math.ceil(popularity)}</p>
                     <p class="votes_number_card">${original_title}</p>
                     <p class="votes_number_card">${genreList.slice(0, 3)}</p>
 </div>
