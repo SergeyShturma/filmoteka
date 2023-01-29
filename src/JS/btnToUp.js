@@ -27,4 +27,7 @@ window.addEventListener('scroll', showArr);
 
 btnToUp.addEventListener('click', function () {
   scrollTo(header);
+  setTimeout(() => {
+    btnToUp.style.display = 'none';
+  }, 1000);
 });
