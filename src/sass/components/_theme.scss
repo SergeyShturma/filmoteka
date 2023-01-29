@@ -18,14 +18,16 @@ body.dark-theme {
 
 body.dark-theme {
   .footer,
-  .modal {
+  .modal,
+  .team__subtitle {
     background-color: #413e3e;
   }
 
   .header__list-link,
   .header__logo-text,
   .header__form-input::placeholder,
-  .library__button {
+  .library__button,
+  .team__title {
     color: rgb(163, 147, 147);
   }
 
@@ -34,7 +36,9 @@ body.dark-theme {
   }
 
   .footer_text,
-  .footer_link {
+  .footer_link,
+  .team__name,
+  .team__position {
     color: rgb(217, 205, 205);
   }
 
