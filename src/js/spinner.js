@@ -12,7 +12,7 @@ const opts = {
   rotate: 10, // The rotation offset
   animation: 'spinner-line-fade-more', // The CSS animation name for the lines
   direction: 1, // 1: clockwise, -1: counterclockwise
-  color: '#49d0a3', // CSS color or array of colors
+  color: '#8B0000', // CSS color or array of colors
   fadeColor: 'transparent', // CSS color or array of colors
   top: '48%', // Top position relative to parent
   left: '50%', // Left position relative to parent
@@ -28,7 +28,7 @@ export function spinnerPlay() {
   spinner.spin(refs.spinner);
   refs.spinner.classList.remove('is-hidden');
 }
-export function spinerStop() {
+export function spinnerStop() {
   refs.spinner.classList.add('is-hidden');
   spinner.stop();
 }
