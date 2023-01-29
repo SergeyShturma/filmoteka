@@ -1,3 +1,4 @@
+import { spinnerPlay, spinnerStop } from './spinner';
 const API_KEY = '671c14eb1babf71c7ecd9b35ab5716a8';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w500/';
@@ -38,6 +39,7 @@ async function getGenreNames() {
 
 async function renderTrendCardMarkup() {
   const genres = await getGenreNames();
+  spinnerPlay();
   getTrendingMovies()
     .then(data => data.results)
     .then(cards =>
@@ -76,7 +78,10 @@ async function renderTrendCardMarkup() {
         refs.cardsArea.insertAdjacentHTML('beforeend', cardMarkup);
       })
     )
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
+    .finally(() => {
+      spinnerStop();
+    });
 }
 
 function getSearchMovies() {
