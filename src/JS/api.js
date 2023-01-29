@@ -138,7 +138,7 @@ async function onSearch(evt){
   { id: 10752, name: 'War' },
   { id: 37, name: 'Western' },
 ];
-    const {genre_ids,  poster_path, title, vote_average, release_date } = card;
+    const {genre_ids,  poster_path, title, vote_average, release_date, id} = card;
     let movieGenres = []; 
     for (const genre of genres) {
     if (genre_ids.includes(genre.id)) {
@@ -149,7 +149,7 @@ async function onSearch(evt){
         }
         }
      
-    return  `<li class='js-card'>
+    return  `<li class='js-card' data-id="${id}">
     <button type="button" class='js-on-card'>
     <img src="${IMG_BASE_URL}${poster_path}" alt="" class='js-card-img'>
     </button>
