@@ -1,8 +1,6 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-// import { renderTrendCardMarkup } from './api';
 import '../sass/__pagination.scss';
-import { refs } from './refs';
 import { getTrendingMovies } from './api';
 
 const container = document.getElementById('tui-pagination-container');
