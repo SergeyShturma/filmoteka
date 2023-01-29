@@ -88,8 +88,10 @@ function createMarkupCard(data) {
         </div>
                     
 <div class="rates_info_card_movie_datas">
-    <p class="votes_number_card"> <span class="span_votes_number_card">${vote_average}</span>/${vote_count}</p>
-                    <p class="votes_number_card">${popularity}</p>
+    <p class="votes_number_card"> <span class="span_votes_number_card">${String(
+      vote_average
+    ).slice(0, 3)}</span>/${vote_count}</p>
+                    <p class="votes_number_card">${Math.ceil(popularity)}</p>
                     <p class="votes_number_card">${original_title}</p>
                     <p class="votes_number_card">${genreList.slice(0, 3)}</p>
 </div>
@@ -105,45 +107,40 @@ function createMarkupCard(data) {
     refs.watchedBtn.textContent = 'Add to watched';
 }
 
-const arrayOfWatchedMovies = []
-const arrayOfQueQue = []
-
-
+const arrayOfWatchedMovies = [];
+const arrayOfQueQue = [];
 
 function addToLocalStorage() {
-    const imageEl = document.querySelector(".image_movie_card")
-    const idFilmUnique = Number(imageEl.dataset.id)
+  const imageEl = document.querySelector('.image_movie_card');
+  const idFilmUnique = Number(imageEl.dataset.id);
 
-        if (arrayOfWatchedMovies.includes(idFilmUnique)) {
-            refs.watchedBtn.textContent = 'Add to watched';
-            const filmIndex = arrayOfWatchedMovies.indexOf(idFilmUnique);
-            const removeFilm = arrayOfWatchedMovies.splice(filmIndex, 1);
+  if (arrayOfWatchedMovies.includes(idFilmUnique)) {
+    refs.watchedBtn.textContent = 'Add to watched';
+    const filmIndex = arrayOfWatchedMovies.indexOf(idFilmUnique);
+    const removeFilm = arrayOfWatchedMovies.splice(filmIndex, 1);
 
-            localStorage.removeItem("watchedMovies")
-            
-        return
-    }
+    localStorage.removeItem('watchedMovies');
 
-    refs.watchedBtn.textContent = 'remove';
+    return;
+  }
 
-    arrayOfWatchedMovies.push(idFilmUnique)
-    localStorage.setItem("watchedMovies", JSON.stringify(arrayOfWatchedMovies))  
+  refs.watchedBtn.textContent = 'remove';
+
+  arrayOfWatchedMovies.push(idFilmUnique);
+  localStorage.setItem('watchedMovies', JSON.stringify(arrayOfWatchedMovies));
 }
 
 function addToQueQueStorage() {
-    const imageEl = document.querySelector(".image_movie_card")
-    const idQueQue = Number(imageEl.dataset.id)
+  const imageEl = document.querySelector('.image_movie_card');
+  const idQueQue = Number(imageEl.dataset.id);
 
-    const watchedMovies = JSON.parse((localStorage.getItem("watchedMovies")))
-    // console.log(JSON.parse(watchedMovies));
-   
-    if (arrayOfQueQue.includes(idQueQue)) {
+  const watchedMovies = JSON.parse(localStorage.getItem('watchedMovies'));
+  // console.log(JSON.parse(watchedMovies));
 
-        return
-    }
+  if (arrayOfQueQue.includes(idQueQue)) {
+    return;
+  }
 
-
-    arrayOfQueQue.push(idQueQue)
-    localStorage.setItem("queQueMovies", JSON.stringify(arrayOfQueQue))
+  arrayOfQueQue.push(idQueQue);
+  localStorage.setItem('queQueMovies', JSON.stringify(arrayOfQueQue));
 }
-
