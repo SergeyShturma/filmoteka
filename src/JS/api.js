@@ -117,8 +117,38 @@ async function onSearch(evt){
   }
 
  function creatMarkup( card ){
-    
-    const { poster_path, title, vote_average, release_date } = card;
+     const genres = [
+  { id: 28, name: 'Action' },
+  { id: 12, name: 'Adventure' },
+  { id: 16, name: 'Animation' },
+  { id: 35, name: 'Comedy' },
+  { id: 80, name: 'Crime' },
+  { id: 99, name: 'Documentary' },
+  { id: 18, name: 'Drama' },
+  { id: 10751, name: 'Family' },
+  { id: 14, name: 'Fantasy' },
+  { id: 36, name: 'History' },
+  { id: 27, name: 'Horror' },
+  { id: 10402, name: 'Music' },
+  { id: 9648, name: 'Mystery' },
+  { id: 10749, name: 'Romance' },
+  { id: 878, name: 'Science Fiction' },
+  { id: 10770, name: 'TV Movie' },
+  { id: 53, name: 'Thriller' },
+  { id: 10752, name: 'War' },
+  { id: 37, name: 'Western' },
+];
+    const {genre_ids,  poster_path, title, vote_average, release_date } = card;
+    let movieGenres = []; 
+    for (const genre of genres) {
+    if (genre_ids.includes(genre.id)) {
+            movieGenres.push(genre.name)
+        }
+    if (movieGenres.length > 3) {
+        movieGenres = [...movieGenres.slice(0, 2), '...Other'];
+        }
+        }
+     
     return  `<li class='js-card'>
     <button type="button" class='js-on-card'>
     <img src="${IMG_BASE_URL}${poster_path}" alt="" class='js-card-img'>
@@ -126,7 +156,7 @@ async function onSearch(evt){
     <div class='js-movie-descr'>
     <p class='js-movie-title'>${title.toUpperCase()}</p>
     <div class='js-movie-genres'>
-    <p> | ${release_date.slice(0, 4)}</p>
+    <p>${movieGenres} | ${release_date.slice(0, 4)}</p>
     <span class='js-movie-reiting'>${String(vote_average).slice(0, 3)}</span>
     </div>
     </div>
