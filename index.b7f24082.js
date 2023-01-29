@@ -1,0 +1,2 @@
+!function(){var e=document.querySelector(".btnToUp");e.style.display="none";var t=document.querySelector(".header");window.addEventListener("scroll",(function(){var t=document.documentElement.clientHeight;document.documentElement.scrollHeight,e.style.display="block",pageYOffset<t&&e.classList.add("arrow--show")})),e.addEventListener("click",(function(){var o;o=t,window.scroll({left:0,top:o.offsetTop,behavior:"smooth"}),setTimeout((function(){e.style.display="none"}),1e3)}))}();
+//# sourceMappingURL=index.b7f24082.js.map
