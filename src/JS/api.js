@@ -7,8 +7,8 @@ const refs = {
     cardsArea: document.querySelector('.js-cards'),
     onloadMore: document.querySelector('.load-more-btn'),
 
-    searchForm: document.querySelector(`.header__form`)
-
+    searchForm: document.querySelector(`.header__form`),
+    clearTextContentInInput: document.querySelector('.js-input'),
 };
 refs.onloadMore.style.display = 'none';
 let pageNum = 1;
@@ -71,7 +71,7 @@ getTrendingMovies()
 function getSearchMovies() {
     return fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&language=ru
 
-    &page=1&query=${searchQuery}&include_adult=false`)
+    &page=${pageNum}&query=${searchQuery}&include_adult=false`)
 
     .then(resp => {
             if (!resp.ok) {
@@ -95,50 +95,19 @@ async function onSearch(evt){
     refs.cardsArea.innerHTML = '';
     console.log(searchQuery);
     if (!searchQuery){
-        Notiflix.Notify.failure(`Please, enter your request`);
+        // Notiflix.Notify.failure(`Please, enter your request`);
+        alert('Please, enter your request');
         return;
-      }
-    
-      try{
-        const SearchData = await getSearchMovies (searchQuery, page)
-          const { results } = SearchData;
-          const murkap = results.map(item => creatMarkup(item)).join('');
-          refs.cardsArea.innerHTML = murkap;
-
-        
-            
-      }
-      catch(error){
-        console.log(error)
-      }
-     
-        
-     
+    }
+    refs.clearTextContentInInput.value = '';
+    creatMarkup()
   }
 
- function creatMarkup( card ){
-     const genres = [
-  { id: 28, name: 'Action' },
-  { id: 12, name: 'Adventure' },
-  { id: 16, name: 'Animation' },
-  { id: 35, name: 'Comedy' },
-  { id: 80, name: 'Crime' },
-  { id: 99, name: 'Documentary' },
-  { id: 18, name: 'Drama' },
-  { id: 10751, name: 'Family' },
-  { id: 14, name: 'Fantasy' },
-  { id: 36, name: 'History' },
-  { id: 27, name: 'Horror' },
-  { id: 10402, name: 'Music' },
-  { id: 9648, name: 'Mystery' },
-  { id: 10749, name: 'Romance' },
-  { id: 878, name: 'Science Fiction' },
-  { id: 10770, name: 'TV Movie' },
-  { id: 53, name: 'Thriller' },
-  { id: 10752, name: 'War' },
-  { id: 37, name: 'Western' },
-];
-    const {genre_ids,  poster_path, title, vote_average, release_date, id} = card;
+ async function creatMarkup(){
+     const genres = await getGenreNames();
+     getSearchMovies().then(data => data.results)
+    .then(cards => cards.map(card => { 
+    const { genre_ids, poster_path, title, vote_average, release_date, id } = card;
     let movieGenres = []; 
     for (const genre of genres) {
     if (genre_ids.includes(genre.id)) {
@@ -147,20 +116,24 @@ async function onSearch(evt){
     if (movieGenres.length > 3) {
         movieGenres = [...movieGenres.slice(0, 2), '...Other'];
         }
-        }
-     
-    return  `<li class='js-card' data-id="${id}">
-    <button type="button" class='js-on-card'>
-    <img src="${IMG_BASE_URL}${poster_path}" alt="" class='js-card-img'>
-    </button>
-    <div class='js-movie-descr'>
-    <p class='js-movie-title'>${title.toUpperCase()}</p>
-    <div class='js-movie-genres'>
-    <p>${movieGenres} | ${release_date.slice(0, 4)}</p>
-    <span class='js-movie-reiting'>${String(vote_average).slice(0, 3)}</span>
-    </div>
-    </div>
-    </li>`
+        }   
+          
+        const cardMarkup = `<li class='js-card' data-id="${id}">
+     <button type="button" class='js-on-card'>
+     <img src="${IMG_BASE_URL}${poster_path}" alt="" class='js-card-img'>
+     </button>
+     <div class='js-movie-descr'>
+     <p class='js-movie-title'>${title.toUpperCase()}</p>
+     <div class='js-movie-genres'>
+     <p>${movieGenres} | ${release_date.slice(0, 4)}</p>
+     <span class='js-movie-reiting'>${String(vote_average).slice(0, 3)}</span>
+     </div>
+     </div>
+     </li>`
+    
+    refs.cardsArea.insertAdjacentHTML('beforeend', cardMarkup)
+    }))
+    .catch(err => console.log(err));
  }
 
 
@@ -203,5 +176,6 @@ setTimeout(() => {
 function onLoadMoreBtn() {
     
     pageNum += 1;
+    creatMarkup();
     renderTrendCardMarkup()
 }
