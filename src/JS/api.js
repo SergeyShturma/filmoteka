@@ -4,12 +4,13 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w500/';
 const MOVIE_ID = '619930';
 
-const refs = {
-  cardsArea: document.querySelector('.js-cards'),
-  onloadMore: document.querySelector('.load-more-btn'),
+import { refs } from './refs';
+// const refs = {
+//   cardsArea: document.querySelector('.js-cards'),
+//   onloadMore: document.querySelector('.load-more-btn'),
 
-  searchForm: document.querySelector(`.header__form`),
-};
+//   searchForm: document.querySelector(`.header__form`),
+// };
 refs.onloadMore.style.display = 'none';
 let pageNum = 1;
 
