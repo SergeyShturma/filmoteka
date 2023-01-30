@@ -42,7 +42,7 @@ function onOpenModal() {
   document.addEventListener('keydown', onEscapeClick);
   document.body.classList.add('show-modal');
   // createMarkupCard();
-  document.body.style.position = 'fixed';
+  // document.body.style.position = 'fixed';
   document.body.style.top = `-${window.scrollY}px`;
 }
 
