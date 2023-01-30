@@ -105,7 +105,7 @@ function createMarkupCard(data) {
     ).slice(0, 3)}</span>/${vote_count}</p>
                     <p class="votes_number_card">${Math.ceil(popularity)}</p>
                     <p class="votes_number_card">${original_title}</p>
-                    <p class="votes_number_card">${genreList.slice(0, 3)}</p>
+                    <p class="votes_number_card">${genreList.slice(0, 3).join(", ")}</p>
 </div>
                     
 
@@ -120,7 +120,7 @@ function createMarkupCard(data) {
     )
     .join('');
   refs.addTo.innerHTML = markup;
-  refs.watchedBtn.textContent = 'Add to watched';
+  refs.watchedBtn.textContent = 'Add to watched'.toUpperCase();
 }
 
 const arrayOfWatchedMovies = [];
@@ -131,7 +131,7 @@ function addToLocalStorage() {
   const idFilmUnique = Number(imageEl.dataset.id);
 
   if (arrayOfWatchedMovies.includes(idFilmUnique)) {
-    refs.watchedBtn.textContent = 'Add to watched';
+    refs.watchedBtn.textContent = 'Add to watched'.toUpperCase();
     const filmIndex = arrayOfWatchedMovies.indexOf(idFilmUnique);
     const removeFilm = arrayOfWatchedMovies.splice(filmIndex, 1);
 
@@ -140,7 +140,7 @@ function addToLocalStorage() {
     return;
   }
 
-  refs.watchedBtn.textContent = 'remove';
+  refs.watchedBtn.textContent = 'remove'.toUpperCase();
 
   arrayOfWatchedMovies.push(idFilmUnique);
   localStorage.setItem('watchedMovies', JSON.stringify(arrayOfWatchedMovies));
