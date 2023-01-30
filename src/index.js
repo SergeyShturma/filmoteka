@@ -1,1 +1,3 @@
-// import './js/modals';
+// import './JS/modals';
+import './JS/theme';
+import './JS/pagination';

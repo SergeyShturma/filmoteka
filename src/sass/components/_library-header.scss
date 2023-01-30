@@ -1,5 +1,5 @@
 .lib-header {
-    min-height: 230px;
+    // min-height: 230px;
     background-repeat: no-repeat;
     background-position: center;
     background-color: rgba(0, 0, 0, 0.56);
@@ -34,15 +34,15 @@ screen and (min-resolution: 3dppx) {
     padding-bottom: 44px;
 }
 
-@media screen and (min-width: 768px) {
-    .header {
-        min-height: auto;
-    }
+// @media screen and (min-width: 768px) {
+//     .header {
+//         min-height: auto;
+//     }
 
-    .header__section {
-        padding-bottom: 60px;
-    }
-}
+//     .header__section {
+//         padding-bottom: 60px;
+//     }
+// }
 
 /*Tablet*/
 @media screen and (min-width: 768px) {
@@ -125,6 +125,8 @@ screen and (min-resolution: 3dppx) {
 
     .header__logo-text {
         display: inline-block;
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
         font-weight: 500;
         font-size: 30px;
         line-height: 1.17;
