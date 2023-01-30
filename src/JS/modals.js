@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
             подложке и окну чтобы показать их. */
       modalElem.classList.add('active');
       overlay.classList.add('active');
-      document.body.style.position = 'fixed';
+      // document.body.style.position = 'fixed';
       document.body.style.top = `-${window.scrollY}px`;
     }); // end click
   }); // end foreach
