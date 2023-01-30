@@ -1,13 +1,13 @@
-*,
-*::before,
-*::after {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
+// *,
+// *::before,
+// *::after {
+//   -webkit-box-sizing: border-box;
+//   box-sizing: border-box;
+// }
 
 body {
   min-height: 100vh;
-
+  margin: 0;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
