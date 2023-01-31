@@ -13,7 +13,7 @@ refs.queueBtn.addEventListener('click', onQueueBtn);
 
 
 function onWatchedBtn(){
-      console.log(`hello world`);
+      
       document.querySelector('.js-cards').innerHTML = '';
       const parsedWathcedFilms = JSON.parse(localStorage.getItem('movies-watched'));
       if (parsedWathcedFilms === null) {
