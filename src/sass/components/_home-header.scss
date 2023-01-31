@@ -286,3 +286,17 @@ screen and (min-resolution: 3dppx) {
 .header__form-input:hover~.header__search {
     stroke: #FF6B08;
 }
+
+.banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+    background-image: linear-gradient(to bottom, blue 50%, yellow 50%);
+    opacity: 1;
+}
