@@ -1,0 +1,2 @@
+const e=document.querySelector(".btnToUp");e.style.display="none";const o=document.querySelector(".header");window.addEventListener("scroll",(function(){let o=document.documentElement.clientHeight;e.style.display="block",window.scrollY<250&&(e.style.display="none"),pageYOffset<o&&e.classList.add("arrow--show")})),e.addEventListener("click",(function(){var e;e=o,window.scroll({left:0,top:e.offsetTop,behavior:"smooth"})}));
+//# sourceMappingURL=index.5c5d3217.js.map
