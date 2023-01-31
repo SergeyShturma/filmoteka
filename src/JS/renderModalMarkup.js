@@ -1,3 +1,5 @@
+
+
 function fetchOneMovie(filmId) {
   return fetch(
     `https://api.themoviedb.org/3/movie/${filmId}?api_key=671c14eb1babf71c7ecd9b35ab5716a8`
@@ -134,6 +136,8 @@ console.log(localStorage.length);
 
 // ------LOCAL STORAGE
 
+
+
 function locStorage(data) {
   const moviesWatched = JSON.parse(localStorage.getItem('movies-watched')) || [];
   const moviesQueue = JSON.parse(localStorage.getItem('movies-queue')) || [];
@@ -156,9 +160,9 @@ function locStorage(data) {
 
   function onWatchedClick() {
     if (!moviesWatched.find(item => item.id === data.id)) {
-      moviesWatched.push(data);
+      moviesWatched.push(data.id);
       localStorage.setItem('movies-watched', JSON.stringify(moviesWatched));
-
+      
       const res = addWatched.classList.toggle('js-remove-from');
       addWatched.textContent = `${res ? 'remove from' : 'add to'} watched `;
       return;
@@ -175,7 +179,7 @@ function locStorage(data) {
 
   function onQueueClick() {
     if (!moviesQueue.find(item => item.id === data.id)) {
-      moviesQueue.push(data);
+      moviesQueue.push(data.id);
       localStorage.setItem('movies-queue', JSON.stringify(moviesQueue));
 
       const res = addQueue.classList.toggle('js-remove-from');
@@ -192,3 +196,5 @@ function locStorage(data) {
     addQueue.textContent = `${res ? 'remove from' : 'add to'} queue `;   
   }
 }
+
+
