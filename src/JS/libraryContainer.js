@@ -1,3 +1,6 @@
+import Notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 async function fetchById(id) {
   const responce = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=671c14eb1babf71c7ecd9b35ab5716a8`);
   const data = await responce.json();
@@ -17,7 +20,7 @@ function onWatchedBtn(){
       document.querySelector('.js-cards').innerHTML = '';
       const parsedWathcedFilms = JSON.parse(localStorage.getItem('movies-watched'));
       if (parsedWathcedFilms === null) {
-          alert ( 'Your list is empty');
+        Notiflix.Notify.failure('There is nothing in the Watch');
           return;
         } else {
           const arrLocalFilms = parsedWathcedFilms.map(id => {
@@ -33,7 +36,7 @@ function onWatchedBtn(){
     const parsedQueueFilms = JSON.parse(localStorage.getItem('movies-queue'));
   
     if (parsedQueueFilms === null) {
-      alert('You have to create a list first');
+       Notiflix.Notify.failure('There is nothing in the Queue');
       return;
     } else {
       const arrLocalFilms = parsedQueueFilms.map(id => {

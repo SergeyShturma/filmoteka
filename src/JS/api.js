@@ -1,4 +1,9 @@
+import { Report } from 'notiflix';
 import { spinnerPlay, spinnerStop } from './spinner';
+import Notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+
 const API_KEY = '671c14eb1babf71c7ecd9b35ab5716a8';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w500/';
@@ -101,6 +106,7 @@ refs.searchForm.addEventListener(`submit`, onSearch);
 
 let searchQuery = ``;
 let page = 1;
+const errorMessage = document.getElementById('header__error-message');
 
 async function onSearch(evt) {
   evt.preventDefault();
@@ -109,12 +115,18 @@ async function onSearch(evt) {
   refs.cardsArea.innerHTML = '';
   console.log(searchQuery);
   if (!searchQuery) {
-    // Notiflix.Notify.failure(`Please, enter your request`);
-    alert('Please, enter your request');
-    return;
+    errorMessage.classList.add('header__error-message');
+    Notify.warning('Sorry, there is no result. Please try another keyword');
+    
+    setTimeout(function () {
+      errorMessage.classList.remove('header__error-message');
+    }, 5000);
+    // alert('Please, enter your request');
+   return;
   }
-  refs.clearTextContentInInput.value = '';
+  Notify.success(`We found for you ${searchQuery} movies`);
   creatMarkup();
+  // refs.clearTextContentInInput.value = '';
 }
 
 async function creatMarkup() {
