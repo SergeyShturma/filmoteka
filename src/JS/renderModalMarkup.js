@@ -13,9 +13,9 @@ function movieClick(evt) {
   evt.preventDefault();
 
   const selectedFilm = evt.target.closest('.js-card');
-  console.log(selectedFilm);
+  // console.log(selectedFilm);
   const filmId = selectedFilm.dataset.id;
-  console.log(filmId);
+  // console.log(filmId);
 
   fetchOneMovie(filmId).then(data => {
     // console.log(data);
@@ -105,12 +105,12 @@ function renderModal(data) {
         </div>
         <div class="movie-modal__info-value">
             <p class="js-info-value">
-                <span class="js-info-value__vote">${vote_average}</span>&ensp;/&ensp; 
+                <span class="js-info-value__vote">${vote_average.toFixed(1)}</span>&ensp;/&ensp; 
                 <span class="js-info-value__votes">${vote_count}</span>
             </p>
-            <p class="js-info-value">${popularity}</p>
+            <p class="js-info-value">${Math.ceil(popularity)}</p>
             <p class="js-info-value">${original_title}</p>
-            <p class="js-info-value">${genreList.splice(0, 3)}</p>
+            <p class="js-info-value">${genreList.splice(0, 3).join(', ')}</p>
         </div>
     </div>
     <h2 class="movie-modal__about">About </h2>
@@ -130,7 +130,6 @@ function renderModal(data) {
     .join('');
   filmModal.innerHTML = markup;
 }
-console.log(localStorage.length);
 
 // ------LOCAL STORAGE
 
