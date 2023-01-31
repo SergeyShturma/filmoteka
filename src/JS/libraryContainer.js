@@ -1,3 +1,5 @@
+import nothingHereUrl from '../images/nothing.webp';
+import { onWatchedBtnClick, onQueueBtnClick } from './lib-btn';
 
 const refs = {
     cardsArea: document.querySelector('.js-cards'),
@@ -5,9 +7,15 @@ const refs = {
     queueBtn: document.querySelector(`.js-queue`)
 }
 
-refs.watchedBtn.addEventListener(`click`, onWatchedBtn);
-refs.queueBtn.addEventListener(`click`, onQueueBtn);
+// async function renderPageLibrary(event) {
+//   event.preventDefault();
 
+//   refs.watchedBtn.classList.remove('button--accent');
+//   refs.queueBtn.classList.remove('button--accent');
+
+  refs.watchedBtn.addEventListener(`click`, onWatchedBtn);
+  refs.queueBtn.addEventListener(`click`, onQueueBtn);
+// }
 
 
 
@@ -19,7 +27,7 @@ async function fetchById(id) {
   
 function onWatchedBtn(){
     console.log(`hello world`);
-    document.querySelector('.js-cards').innerHTML = '';
+  document.querySelector('.js-cards').innerHTML = '';
     const parsedWathcedFilms = JSON.parse(localStorage.getItem('watchedMovies'));
     if (parsedWathcedFilms === null) {
         alert ( 'Your list is empty');
@@ -49,6 +57,42 @@ function onQueueBtn() {
   }
 }
 
+// function renderAllList() {
+//   document.querySelector('.js-cards').innerHTML = '';
+//   let arrWatchId = [];
+//   let arrQueueId = [];
+//   if (load('watched')) {
+//     arrWatchId = load('.js-watched');
+//   }
+//   if (load('queue')) {
+//     arrQueueId = load('.js-queue');
+//   }
+//    const arrAllId = [...arrWatchId, ...arrQueueId];
+//   if (arrWatchId.length === 0 && arrQueueId.length === 0) {
+//     showBlankLibrary();
+//   } else {
+//     for (let id of arrAllId) {
+//       fetchById(id).then(response => {
+//         markup(response.data, id);
+//       });
+//     }
+//   }
+// }
+
+// function showBlankLibrary() {
+//   '.js-cards'.innerHTML = 
+//     `
+//   <li></li>
+//   <li>
+//    <a>
+//       <p class="library__text"> There are no films yet !</p>
+//       <img class="library__picture" src="${nothingHereUrl}" alt="blank cinema">
+//     </a>
+//     </li>
+//   `;
+//   pagination.style.display = 'none';
+// }
+
 function markup(res) {
   const { poster_path, title, id, release_date, genres, vote_average } = res;
  const movieGenres = genres.map(({ name }) => name).join(', ');
@@ -65,8 +109,6 @@ function markup(res) {
   </div>
   </li>`;
 
-  
-    
     refs.cardsArea.insertAdjacentHTML('beforeend', markup);
 }
 
