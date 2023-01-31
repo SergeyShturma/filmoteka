@@ -17,7 +17,7 @@ function movieClick(evt) {
   const selectedFilm = evt.target.closest('.js-card');
   console.log(selectedFilm);
   const filmId = selectedFilm.dataset.id;
-  console.log(filmId);
+  
 
   fetchOneMovie(filmId).then(data => {
     // console.log(data);
@@ -147,21 +147,24 @@ function locStorage(data) {
   addWatched.addEventListener('click', onWatchedClick);
   addQueue.addEventListener('click', onQueueClick);
 
-  if (moviesWatched.find(item => item.id === data.id)) {
-    addWatched.classList.add('js-remove-from');
-    addWatched.textContent = 'remove from watched';
-  }
+  // if (moviesWatched.find(item => item.id === data.id)) {
+  //   addWatched.classList.add('js-remove-from');
+  //   addWatched.textContent = 'remove from watched';
+  // }
 
-  if (moviesQueue.find(item => item.id === data.id)) {
-    addQueue.classList.add('js-remove-from');
-    addQueue.textContent = 'remove from queue';
-  }
+  // if (moviesQueue.find(item => item.id === data.id)) {
+  //   addQueue.classList.add('js-remove-from');
+  //   addQueue.textContent = 'remove from queue';
+  // }
 
 
   function onWatchedClick() {
     if (!moviesWatched.find(item => item.id === data.id)) {
       moviesWatched.push(data.id);
+    
+      
       localStorage.setItem('movies-watched', JSON.stringify(moviesWatched));
+<<<<<<< Updated upstream
       
       const res = addWatched.classList.toggle('js-remove-from');
       addWatched.textContent = `${res ? 'remove from' : 'add to'} watched `;
@@ -176,25 +179,51 @@ function locStorage(data) {
     const res = addWatched.classList.toggle('js-remove-from');
     addWatched.textContent = `${res ? 'remove from' : 'add to'} watched `;  
   }
+=======
+
+      // const res = addWatched.classList.toggle('js-remove-from');
+      // addWatched.textContent = `${res ? 'remove from' : 'add to'} watched `;
+      return;
+    } 
+      
+    // const index = moviesWatched.find(object => object.id === data.id);
+    // moviesWatched.splice(index, 1);
+    // localStorage.setItem('movies-watched', JSON.stringify(moviesWatched));
+
+    // const res = addWatched.classList.toggle('js-remove-from');
+    // addWatched.textContent = `${res ? 'remove from' : 'add to'} watched `;
+   
+    
+}
+>>>>>>> Stashed changes
 
   function onQueueClick() {
     if (!moviesQueue.find(item => item.id === data.id)) {
       moviesQueue.push(data.id);
       localStorage.setItem('movies-queue', JSON.stringify(moviesQueue));
 
-      const res = addQueue.classList.toggle('js-remove-from');
-      addQueue.textContent = `${res ? 'remove from' : 'add to'} queue `;
+      // const res = addQueue.classList.toggle('js-remove-from');
+      // addQueue.textContent = `${res ? 'remove from' : 'add to'} queue `;
       return;
     }
 
-    const index = moviesQueue.findIndex(object => object.id === data.id);
+    // const index = moviesQueue.findIndex(object => object.id === data.id);
 
-    moviesQueue.splice(index, 1);
-    localStorage.setItem('movies-queue', JSON.stringify(moviesQueue));
+    // moviesQueue.splice(index, 1);
+    // localStorage.setItem('movies-queue', JSON.stringify(moviesQueue));
 
+<<<<<<< Updated upstream
     const res = addQueue.classList.toggle('js-remove-from');
     addQueue.textContent = `${res ? 'remove from' : 'add to'} queue `;   
+=======
+    // const res = addQueue.classList.toggle('js-remove-from');
+    // addQueue.textContent = `${res ? 'remove from' : 'add to'} queue `;
+>>>>>>> Stashed changes
   }
+  
 }
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
