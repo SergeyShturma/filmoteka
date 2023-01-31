@@ -77,5 +77,6 @@
 
 .overlay.active {
   background-image: url(/src/images/friends.jpg);
-  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
