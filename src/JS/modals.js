@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
             подложке и окну чтобы показать их. */
       modalElem.classList.add('active');
       overlay.classList.add('active');
-      // document.body.style.position = 'fixed';
+      document.body.style = `overflow-y: hidden`;
       document.body.style.top = `-${window.scrollY}px`;
     }); // end click
   }); // end foreach
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
       parentModal.classList.remove('active');
       overlay.classList.remove('active');
       const scrollY = document.body.style.top;
-      document.body.style.position = '';
+      document.body.style = `overflow-y: visible`;
       document.body.style.top = '';
       window.scrollTo(0, parseInt(scrollY || '0') * -1);
     });

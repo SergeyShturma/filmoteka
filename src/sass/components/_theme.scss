@@ -19,7 +19,8 @@ body.dark-theme {
 body.dark-theme {
   .footer,
   .modal,
-  .team__subtitle {
+  .team__subtitle,
+  .js-movie-modal {
     background-color: #413e3e;
   }
 
@@ -27,8 +28,14 @@ body.dark-theme {
   .header__logo-text,
   .header__form-input::placeholder,
   .library__button,
-  .team__title {
+  .team__title,
+  .js-info-value,
+  .js-movie-modal__about-text {
     color: rgb(163, 147, 147);
+  }
+
+  .js-movie-modal__title {
+    color: rgb(231, 224, 224);
   }
 
   .library__button {

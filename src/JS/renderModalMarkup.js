@@ -1,5 +1,3 @@
-
-
 function fetchOneMovie(filmId) {
   return fetch(
     `https://api.themoviedb.org/3/movie/${filmId}?api_key=671c14eb1babf71c7ecd9b35ab5716a8`
@@ -21,8 +19,8 @@ function movieClick(evt) {
 
   fetchOneMovie(filmId).then(data => {
     // console.log(data);
-    showModal(data)
-  })
+    showModal(data);
+  });
 }
 
 const backdrop = document.querySelector('.js-movie-modal-backdrop');
@@ -41,7 +39,7 @@ function showBackdrop() {
 function closeBackdrop() {
   backdrop.classList.add('is-hidden');
   backdrop.innerHTML = '';
-  document.body.style = `overflow-y: overlay`;
+  document.body.style = `overflow-y: visible`;
 }
 
 function showModal(data) {
@@ -130,16 +128,15 @@ function renderModal(data) {
       }
     )
     .join('');
-   filmModal.innerHTML = markup;
+  filmModal.innerHTML = markup;
 }
 console.log(localStorage.length);
 
 // ------LOCAL STORAGE
 
-
-
 function locStorage(data) {
-  const moviesWatched = JSON.parse(localStorage.getItem('movies-watched')) || [];
+  const moviesWatched =
+    JSON.parse(localStorage.getItem('movies-watched')) || [];
   const moviesQueue = JSON.parse(localStorage.getItem('movies-queue')) || [];
   const addWatched = document.querySelector('.add-watched');
   const addQueue = document.querySelector('.add-queue');
@@ -157,12 +154,11 @@ function locStorage(data) {
     addQueue.textContent = 'remove from queue';
   }
 
-
   function onWatchedClick() {
     if (!moviesWatched.find(item => item.id === data.id)) {
       moviesWatched.push(data.id);
       localStorage.setItem('movies-watched', JSON.stringify(moviesWatched));
-      
+
       const res = addWatched.classList.toggle('js-remove-from');
       addWatched.textContent = `${res ? 'remove from' : 'add to'} watched `;
       return;
@@ -174,7 +170,7 @@ function locStorage(data) {
     localStorage.setItem('movies-watched', JSON.stringify(moviesWatched));
 
     const res = addWatched.classList.toggle('js-remove-from');
-    addWatched.textContent = `${res ? 'remove from' : 'add to'} watched `;  
+    addWatched.textContent = `${res ? 'remove from' : 'add to'} watched `;
   }
 
   function onQueueClick() {
@@ -193,8 +189,6 @@ function locStorage(data) {
     localStorage.setItem('movies-queue', JSON.stringify(moviesQueue));
 
     const res = addQueue.classList.toggle('js-remove-from');
-    addQueue.textContent = `${res ? 'remove from' : 'add to'} queue `;   
+    addQueue.textContent = `${res ? 'remove from' : 'add to'} queue `;
   }
 }
-
-
