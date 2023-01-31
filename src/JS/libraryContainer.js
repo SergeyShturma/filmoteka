@@ -8,9 +8,9 @@ const refs = {
     watchedBtn: document.querySelector(`.js-watched`),
     queueBtn: document.querySelector(`.js-queue`)
 }
+refs.watchedBtn.addEventListener('click', onWatchedBtn);
+refs.queueBtn.addEventListener('click', onQueueBtn);
 
-refs.watchedBtn.addEventListener(`click`, onWatchedBtn);
-refs.queueBtn.addEventListener(`click`, onQueueBtn);
 
 function onWatchedBtn(){
       console.log(`hello world`);
@@ -46,12 +46,12 @@ function onWatchedBtn(){
 
 
 function updateMarkup() {
-  if (watchedBtn.classList.contains('button--accent')) {
+  if (refs.watchedBtn.classList.contains('button--accent')) {
     cardsArea.innerHTML = '';
     const parsedWathcedFilms = JSON.parse(localStorage.getItem('movies-watched'));
     
-    const arrLocalFilms = parsedWathcedFilms.map(filmId => {
-      return fetchOneMovie(filmId).then(res => {
+    const arrLocalFilms = parsedWathcedFilms.map(id => {
+      return fetchById(id).then(res => {
         markup(res);
       });
     });
@@ -66,6 +66,8 @@ function updateMarkup() {
     });
   });
 }
+
+
 
 function markup(res) {
 const { poster_path, title, id, release_date, genres, vote_average } = res;
