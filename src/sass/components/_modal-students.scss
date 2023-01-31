@@ -14,12 +14,6 @@
     padding-left: 5px;
   }
 
-  // @media screen and (min-width: 480px) and (max-width: 767px) {
-  //   width: 480px;
-  //   padding-left: 5px;
-  //   padding-right: 5px;
-  // }
-
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 700px;
     height: auto;
@@ -47,7 +41,6 @@
 
     &:hover,
     &:focus {
-      // color: #0a8817;
       border-color: #80cb16;
     }
   }
@@ -56,29 +49,13 @@
   }
 }
 
-// .modal.active,
-// .overlay.active {
-//   opacity: 1;
-//   visibility: visible;
-// }
-
 .team {
-  // background-color: grey;
   padding-top: 30px;
   padding-bottom: 30px;
 
   @media screen and (max-width: 767px) {
     width: 100%;
-
-    // &__images:not(:last-child) {
-    //   margin-bottom: 30px;
-    // }
   }
-
-  // @media screen and (min-width: 1200px) {
-  //   padding-top: var(--section-padding-top);
-  //   padding-bottom: var(--section-padding-bottom);
-  // }
 
   &__images {
     background-color: var(--background-color);
@@ -102,6 +79,12 @@
   }
 
   &__image {
+    transition: 1s;
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+    }
+
     @media screen and (max-width: 767px) {
       width: 450px;
     }
@@ -111,13 +94,11 @@
     }
 
     @media screen and (min-width: 1200px) {
-      height: 215;
-      // width: ;
+      height: 215px;
     }
 
     @media screen and (min-width: 1280px) {
-      height: 270;
-      // width: ;
+      height: 270px;
     }
   }
 
