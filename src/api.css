@@ -110,6 +110,58 @@ p, ul, button {
     box-shadow: rgba(107, 35, 35, 0.24) 0px 5px 10px;
 }
 
+.error-container {
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all .25s cubic-bezier(.4,0,.2,1);
+    display: flex;
+}
+ 
+.gif-error {
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+    transition: all .25s cubic-bezier(.4,0,.2,1);
+}
+.gif-error:hover{
+    transform: scale(1.05);
+}
+.error-text {
+    cursor: pointer;
+    letter-spacing: .02em;
+    text-align: center;
+    margin-bottom: 21px;
+    font-size: 20px;
+    line-height: .866667;
+    transition: all .25s cubic-bezier(.4,0,.2,1);
+}
+.error-text:hover{
+    transform: scale(1.05);
+}
+.btn-main__page{
+    letter-spacing: .06em;
+    cursor: pointer;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    background-color: rgba(0,0,0,0);
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.875;
+    transition: all .25s cubic-bezier(.4,0,.2,1);
+    display: inline-block;
+}
+.btn-main__page:hover,
+.btn-main__page:focus{
+    background-color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    box-shadow: 0px 8px 43px var(--accent-color);
+    color: var(--primary-text-color);
+}
 @media screen and (max-width: 767px) {
     .js-cards {
             gap: 20px;
