@@ -14,14 +14,14 @@ const refs = {
 refs.watchedBtn.addEventListener('click', onWatchedBtn);
 refs.queueBtn.addEventListener('click', onQueueBtn);
 
-const hiddenFunny = document.getElementById('error_funny')
+
 
      function onWatchedBtn(){
       document.querySelector('.js-cards').innerHTML = '';
       const parsedWathcedFilms = JSON.parse(localStorage.getItem('movies-watched'));
       if (parsedWathcedFilms === null) {
         Notiflix.Notify.failure('There is nothing in the Watch');
-        hiddenFunny.classList.add('error_funny');
+        errorLibraryGiphy()
           return;
         } else {
           const arrLocalFilms = parsedWathcedFilms.map(id => {
@@ -30,14 +30,14 @@ const hiddenFunny = document.getElementById('error_funny')
             });
           });
         }
-  }
+}
+  
   function onQueueBtn() {
-    
     document.querySelector('.js-cards').innerHTML = '';
     const parsedQueueFilms = JSON.parse(localStorage.getItem('movies-queue'));
     if (parsedQueueFilms === null) {
       Notiflix.Notify.failure('There is nothing in the Queue');
-      hiddenFunny.classList.add('error_funny');
+errorLibraryGiphy()
       return;
     } else {
       const arrLocalFilms = parsedQueueFilms.map(id => {
@@ -48,6 +48,12 @@ const hiddenFunny = document.getElementById('error_funny')
     }
   }
 
+  function errorLibraryGiphy() {
+  refs.cardsArea.innerHTML = `<div class="funny_wrapper"><iframe src="https://tenor.com/view/the-simpsons-homer-simpson-nothing-to-see-here-simpsons-bush-gif-16295909" frameBorder="0" class="funny gif-error" allowFullScreen></iframe>
+    <span class="error-text">Nothing is here</span><a href="/library.html" class="btn-main__page">To main page</a></div>`;
+    refs.watchedBtn.style.display = 'none';
+    refs.queueBtn.style.display = 'none';
+}
 
 function updateMarkup() {
   if (refs.watchedBtn.classList.contains('button--accent')) {
