@@ -6,13 +6,14 @@ async function fetchById(id) {
   const data = await responce.json();
   return data;
 }
+onWatchedBtn();
+// const library = document.querySelector(`.header__list-link--accent`);
+// library.addEventListener(`click`, onLibrary);
+// function onLibrary() {
+//   console.log(`hello`);
+//   onWatchedBtn();
+// }
 
-const parsedWathcedFilms = JSON.parse(localStorage.getItem('movies-watched'));
-const arrLocalFilms = parsedWathcedFilms.map(id => {
-  fetchById(id).then(res => {
-    markup(res);
-  });
-});
 
 const refs = {
     cardsArea: document.querySelector('.js-cards'),
