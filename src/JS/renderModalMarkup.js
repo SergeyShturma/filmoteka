@@ -167,7 +167,7 @@ function locStorage(data) {
 
   function onWatchedClick() {
     if (!moviesWatched.find(item => item.id === data.id)) {
-      moviesWatched.push(data.id);
+      moviesWatched.push(data);
       localStorage.setItem('movies-watched', JSON.stringify(moviesWatched));
 
       const res = addWatched.classList.toggle('js-remove-from');
@@ -186,7 +186,7 @@ function locStorage(data) {
 
   function onQueueClick() {
     if (!moviesQueue.find(item => item.id === data.id)) {
-      moviesQueue.push(data.id);
+      moviesQueue.push(data);
       localStorage.setItem('movies-queue', JSON.stringify(moviesQueue));
 
       const res = addQueue.classList.toggle('js-remove-from');
