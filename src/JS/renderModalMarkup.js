@@ -1,5 +1,3 @@
-// import Notiflix from 'notiflix';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 function fetchOneMovie(filmId) {
   return fetch(
     `https://api.themoviedb.org/3/movie/${filmId}?api_key=671c14eb1babf71c7ecd9b35ab5716a8`
@@ -157,65 +155,51 @@ function locStorage(data) {
   addWatched.addEventListener('click', onWatchedClick);
   addQueue.addEventListener('click', onQueueClick);
 
-  // if (moviesWatched.find(item => item.id === data.id)) {
-  //   addWatched.classList.add('js-remove-from');
-  //   addWatched.textContent = 'remove from watched';
-  // }
+  if (moviesWatched.find(item => item.id === data.id)) {
+    addWatched.classList.add('js-remove-from');
+    addWatched.textContent = 'remove from watched';
+  }
 
-  // if (moviesQueue.find(item => item.id === data.id)) {
-  //   addQueue.classList.add('js-remove-from');
-  //   addQueue.textContent = 'remove from queue';
-  // }
+  if (moviesQueue.find(item => item.id === data.id)) {
+    addQueue.classList.add('js-remove-from');
+    addQueue.textContent = 'remove from queue';
+  }
 
   function onWatchedClick() {
-    if ( moviesWatched.includes( data.id)){
-      Notiflix.Notify.failure(
-        'The movie has already been added to the list!'
-      );
-      return;
-    } else
-    // else (!moviesWatched.find(item => item.id === data.id)) {
-      {moviesWatched.push(data.id);
+    if (!moviesWatched.find(item => item.id === data.id)) {
+      moviesWatched.push(data.id);
       localStorage.setItem('movies-watched', JSON.stringify(moviesWatched));
-      Notiflix.Notify.success(
-        'The movie added to the list!'
-      );
-      // const res = addWatched.classList.toggle('js-remove-from');
-      // addWatched.textContent = `${res ? 'remove from' : 'add to'} watched `;
-      // return;
+
+      const res = addWatched.classList.toggle('js-remove-from');
+      addWatched.textContent = `${res ? 'remove from' : 'add to'} watched `;
+      return;
     }
 
-    // const index = moviesWatched.findIndex(object => object.id === data.id);
+    const index = moviesWatched.findIndex(object => object.id === data.id);
 
-    // moviesWatched.splice(index, 1);
-    // localStorage.setItem('movies-watched', JSON.stringify(moviesWatched));
+    moviesWatched.splice(index, 1);
+    localStorage.setItem('movies-watched', JSON.stringify(moviesWatched));
 
-    // const res = addWatched.classList.toggle('js-remove-from');
-    // addWatched.textContent = `${res ? 'remove from' : 'add to'} watched `;
+    const res = addWatched.classList.toggle('js-remove-from');
+    addWatched.textContent = `${res ? 'remove from' : 'add to'} watched `;
   }
 
   function onQueueClick() {
-    if ( moviesQueue.includes( data.id)){
-      Notiflix.Notify.failure(
-        'The movie has already been added to the list!'
-      );
-      return;
-    } else
-    // if (!moviesQueue.find(item => item.id === data.id)) {
-      {moviesQueue.push(data.id);
+    if (!moviesQueue.find(item => item.id === data.id)) {
+      moviesQueue.push(data.id);
       localStorage.setItem('movies-queue', JSON.stringify(moviesQueue));
 
-      // const res = addQueue.classList.toggle('js-remove-from');
-      // addQueue.textContent = `${res ? 'remove from' : 'add to'} queue `;
-      // return;
+      const res = addQueue.classList.toggle('js-remove-from');
+      addQueue.textContent = `${res ? 'remove from' : 'add to'} queue `;
+      return;
     }
 
-    // const index = moviesQueue.findIndex(object => object.id === data.id);
+    const index = moviesQueue.findIndex(object => object.id === data.id);
 
-    // moviesQueue.splice(index, 1);
-    // localStorage.setItem('movies-queue', JSON.stringify(moviesQueue));
+    moviesQueue.splice(index, 1);
+    localStorage.setItem('movies-queue', JSON.stringify(moviesQueue));
 
-    // const res = addQueue.classList.toggle('js-remove-from');
-    // addQueue.textContent = `${res ? 'remove from' : 'add to'} queue `;
+    const res = addQueue.classList.toggle('js-remove-from');
+    addQueue.textContent = `${res ? 'remove from' : 'add to'} queue `;
   }
 }
