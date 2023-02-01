@@ -115,17 +115,12 @@ async function onSearch(evt) {
   refs.cardsArea.innerHTML = '';
   console.log(searchQuery);
   if (!searchQuery) {
-    errorMessage.classList.add('header__error-message');
-    Notify.warning('Sorry, there is no result. Please try another keyword');
-    
-    setTimeout(function () {
-      errorMessage.classList.remove('header__error-message');
-    }, 5000);
-    // alert('Please, enter your request');
+    errorSearchGiphy();
    return;
   }
   await getSearchMovies().then(data => {
       if (data.total_results === 0) {
+        errorSearchGiphy()
       errorMessage.classList.add('header__error-message');
       Notify.warning('Sorry, there is no result. Please try another keyword');
        return; 
@@ -177,6 +172,12 @@ async function creatMarkup() {
       })
     )
     .catch(err => console.log(err));
+}
+
+function errorSearchGiphy(){
+  refs.cardsArea.innerHTML = `<div class="error-container"><iframe src="https://giphy.com/embed/3o7aTskHEUdgCQAXde" frameBorder="0" class="giphy-embed gif-error" allowFullScreen></iframe>
+    <span class="error-text">Incorrect request. Page not found </span><a href="/index.html" class="btn-main__page">To main page</a></div>`;
+    refs.onloadMore.style.display = 'none';
 }
 
 function getMovieDetails() {
