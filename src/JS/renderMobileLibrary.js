@@ -139,14 +139,14 @@ function fetchOneMovie(filmId) {
   
   
   
-  // function onRemoveWatchedClick() {
-  //     console.log(`hello world`);
-  // //     const filmId = watchedBtn.dataset.id;
-  // //     const parsedWathcedFilms = JSON.parse(localStorage.getItem('movies-watched'));
-  // //     if (parsedWathcedFilms.includes(filmId)) {
-  // //         localStorage.removeItem('movies-watched', JSON.stringify([filmIdToLS]));
-  // //       };
-  // //       parsedWathcedFilms.splice(parsedWathcedFilms.indexOf(filmId), 1);
-  // //   localStorage.setItem('movies-watched', JSON.stringify(parsedWathcedFilms));
-  //   }
-  //   
+  function onRemoveWatchedClick() {
+      console.log(`hello world`);
+  //     const filmId = watchedBtn.dataset.id;
+  //     const parsedWathcedFilms = JSON.parse(localStorage.getItem('movies-watched'));
+  //     if (parsedWathcedFilms.includes(filmId)) {
+  //         localStorage.removeItem('movies-watched', JSON.stringify([filmIdToLS]));
+  //       };
+  //       parsedWathcedFilms.splice(parsedWathcedFilms.indexOf(filmId), 1);
+  //   localStorage.setItem('movies-watched', JSON.stringify(parsedWathcedFilms));
+    }
+    
