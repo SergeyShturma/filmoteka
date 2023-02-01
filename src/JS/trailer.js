@@ -11,15 +11,8 @@ export default function onTrailerClick() {
 ///// Click event listener /////
 function watchTrailer(e) {
   e.preventDefault();
-  if (e.target.nodeName !== 'BUTTON') {
-    return;
-  }
-  const selectedFilm = evt.target.closest('.js-card');
-  console.log(selectedFilm);
-  const filmId = selectedFilm.dataset.id;
-  console.log(filmId);
 
-  fetchTrailer(filmId)
+  fetchTrailer(e.target.closest('.js-card').id)
     .then(renderTrailer)
     .catch(error => {
       console.log(error);

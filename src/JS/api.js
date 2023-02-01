@@ -69,7 +69,7 @@ async function renderTrendCardMarkup() {
      <div class='js-movie-descr'>
      <p class='js-movie-title'>${title.toUpperCase()}</p>
      <div class='js-movie-genres'>
-     <p>${movieGenres.join(", ")} | ${release_date.slice(0, 4)}</p>
+     <p>${movieGenres.join(', ')} | ${release_date.slice(0, 4)}</p>
      <span class='js-movie-reiting'>${String(vote_average).slice(0, 3)}</span>
      </div>
      </div>
@@ -148,7 +148,7 @@ async function creatMarkup() {
      <div class='js-movie-descr'>
      <p class='js-movie-title'>${title.toUpperCase()}</p>
      <div class='js-movie-genres'>
-     <p>${movieGenres.join(", ")} | ${release_date.slice(0, 4)}</p>
+     <p>${movieGenres.join(', ')} | ${release_date.slice(0, 4)}</p>
      <span class='js-movie-reiting'>${String(vote_average).slice(0, 3)}</span>
      </div>
      </div>
