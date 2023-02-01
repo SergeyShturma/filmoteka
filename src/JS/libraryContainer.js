@@ -14,13 +14,14 @@ const refs = {
 refs.watchedBtn.addEventListener('click', onWatchedBtn);
 refs.queueBtn.addEventListener('click', onQueueBtn);
 
+const hiddenFunny = document.getElementById('error_funny')
 
-function onWatchedBtn(){
-      
+     function onWatchedBtn(){
       document.querySelector('.js-cards').innerHTML = '';
       const parsedWathcedFilms = JSON.parse(localStorage.getItem('movies-watched'));
       if (parsedWathcedFilms === null) {
         Notiflix.Notify.failure('There is nothing in the Watch');
+        hiddenFunny.classList.add('error_funny');
           return;
         } else {
           const arrLocalFilms = parsedWathcedFilms.map(id => {
@@ -34,9 +35,9 @@ function onWatchedBtn(){
     
     document.querySelector('.js-cards').innerHTML = '';
     const parsedQueueFilms = JSON.parse(localStorage.getItem('movies-queue'));
-  
     if (parsedQueueFilms === null) {
-       Notiflix.Notify.failure('There is nothing in the Queue');
+      Notiflix.Notify.failure('There is nothing in the Queue');
+      hiddenFunny.classList.add('error_funny');
       return;
     } else {
       const arrLocalFilms = parsedQueueFilms.map(id => {
