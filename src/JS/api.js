@@ -124,8 +124,15 @@ async function onSearch(evt) {
     // alert('Please, enter your request');
    return;
   }
-  Notify.success(`We found for you ${searchQuery} movies`);
-  creatMarkup();
+  await getSearchMovies().then(data => {
+      if (data.total_results === 0) {
+      errorMessage.classList.add('header__error-message');
+      Notify.warning('Sorry, there is no result. Please try another keyword');
+       return; 
+      } 
+      Notify.success(`We found for you ${searchQuery} movies`);
+      creatMarkup();
+    })
   // refs.clearTextContentInInput.value = '';
 }
 
