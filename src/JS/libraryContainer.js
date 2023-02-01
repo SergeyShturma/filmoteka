@@ -18,14 +18,14 @@ refs.queueBtn.addEventListener('click', onQueueBtn);
 
      function onWatchedBtn(){
       document.querySelector('.js-cards').innerHTML = '';
-      const parsedWathcedFilms = JSON.parse(localStorage.getItem('movies-watched'));
+       const parsedWathcedFilms = JSON.parse(localStorage.getItem('movies-watched'));
       if (parsedWathcedFilms === null) {
         Notiflix.Notify.failure('There is nothing in the Watch');
         errorLibraryGiphy()
           return;
         } else {
-          const arrLocalFilms = parsedWathcedFilms.map(id => {
-            fetchById(id).then(res => {
+          const arrLocalFilms = parsedWathcedFilms.map(data => {
+            fetchById(data.id).then(res => {
               markup(res);
             });
           });
@@ -40,8 +40,8 @@ refs.queueBtn.addEventListener('click', onQueueBtn);
 errorLibraryGiphy()
       return;
     } else {
-      const arrLocalFilms = parsedQueueFilms.map(id => {
-        return fetchById(id).then(res => {
+      const arrLocalFilms = parsedQueueFilms.map(data => {
+        return fetchById(data.id).then(res => {
           markup(res);
         });
       });
