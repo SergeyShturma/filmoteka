@@ -146,7 +146,7 @@ function renderModal(data) {
 }
 
 // ------LOCAL STORAGE
-
+localStorage.clear();
 function locStorage(data) {
   const moviesWatched =
     JSON.parse(localStorage.getItem('movies-watched')) || [];
