@@ -1,0 +1,31 @@
+.btn-trailer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px;
+  height: 48px;
+  background-color: transparent;
+  opacity: 0.8;
+  pointer-events: none;
+  transition: all var(--time) var(--timing-function);
+}
+
+.btn-trailer__path {
+  transition: all var(--time) var(--timing-function);
+}
+
+.js-movie-modal__poster:hover,
+.js-movie-modal__poster:focus {
+  .js-movie-modal__poster {
+    opacity: 0.8;
+  }
+
+  .btn-trailer {
+    opacity: 1;
+  }
+
+  .btn-trailer__path {
+    fill: #f00;
+  }
+}
