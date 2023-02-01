@@ -21,7 +21,7 @@ let pageNum = 2;
 // renderTrendCardMarkup();
 
 export function getTrendingMovies(pageNum) {
-  console.log('pageNum ', pageNum);
+  // console.log('pageNum ', pageNum);
   return fetch(`${BASE_URL}/trending/movie/day?api_key=${API_KEY}&language=ru
     &page=${pageNum}&include_adult=false`)
     .then(resp => {
