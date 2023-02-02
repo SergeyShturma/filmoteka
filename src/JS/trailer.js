@@ -1,9 +1,9 @@
 import * as basicLightbox from 'basiclightbox';
 import axios from 'axios';
-
 let trailer;
-const mainContainer = document.querySelector('.container__main');
-
+const mainContainer = document.querySelector('.js-card');
+console.log(mainContainer);
+///// Click event listener /////
 export default function onTrailerClick() {
   mainContainer.addEventListener('click', watchTrailer);
 }
@@ -11,19 +11,26 @@ export default function onTrailerClick() {
 ///// Click event listener /////
 function watchTrailer(e) {
   e.preventDefault();
+  const selectedFilm = e.target.closest('.js-card');
+  console.log(selectedFilm);
+  const filmId = selectedFilm.dataset.id;
+  console.log(filmId);
 
-  fetchTrailer(e.target.closest('.js-card').id)
-    .then(renderTrailer)
+  fetchTrailer(filmId)
+    .then(data => {
+      console.log(data);
+      renderTrailer(data);
+    })
     .catch(error => {
       console.log(error);
     });
 }
 
 ///// Fetch movie by ID /////
-function fetchTrailer(filmID, lang) {
+function fetchTrailer(filmID) {
   return axios
     .get(
-      `https://api.themoviedb.org/3/movie/${filmID}/videos?api_key=daf1fe8995a61d2fecc007eaa464ca98&language=${lang}`
+      `https://api.themoviedb.org/3/movie/${filmID}/videos?api_key=daf1fe8995a61d2fecc007eaa464ca98`
     )
     .then(response => response.data)
     .then(data => {
