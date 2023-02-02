@@ -181,9 +181,15 @@ async function creatMarkup() {
 
 function errorSearchGiphy() {
   refs.cardsArea.innerHTML = `<div class="error-container"><iframe src="https://giphy.com/embed/3o7aTskHEUdgCQAXde" frameBorder="0" class="giphy-embed gif-error" allowFullScreen></iframe>
-    <span class="error-text">Incorrect request. Page not found </span><a href="/index.html" class="btn-main__page">To main page</a></div>`;
+    <span>Something went wrong. Page not found. </span></div>`;
   refs.onloadMore.style.display = 'none';
 }
+
+// function errorSearchGiphy() {
+//   refs.cardsArea.innerHTML = `<div class="error-container"><iframe src="https://giphy.com/embed/3o7aTskHEUdgCQAXde" frameBorder="0" class="giphy-embed gif-error" allowFullScreen></iframe>
+//     <span class="error-text">Something went wrong. Page not found. </span><a href="/index.html" class="btn-main__page">To main page</a></div>`;
+//   refs.onloadMore.style.display = 'none';
+// }
 
 function getMovieDetails() {
   return fetch(`${BASE_URL}/movie/${MOVIE_ID}?api_key=${API_KEY}`)
